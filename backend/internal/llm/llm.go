@@ -21,7 +21,7 @@ type Anthropic struct {
 	APIKey    string
 	Model     string
 	BaseURL   string // default https://api.anthropic.com
-	MaxTokens int    // default 1500
+	MaxTokens int    // default 4096 (includes any thinking tokens)
 	HTTP      *http.Client
 }
 
@@ -32,13 +32,15 @@ func (a *Anthropic) Complete(ctx context.Context, system, user string) (string, 
 	}
 	maxTokens := a.MaxTokens
 	if maxTokens == 0 {
-		maxTokens = 1500
+		maxTokens = 4096
 	}
 	body, _ := json.Marshal(map[string]any{
 		"model":      a.Model,
 		"max_tokens": maxTokens,
 		"system":     system,
 		"messages":   []map[string]string{{"role": "user", "content": user}},
+		// Filtering and short summaries don't need deep reasoning; low effort keeps calls fast and cheap.
+		"output_config": map[string]string{"effort": "low"},
 	})
 	req, err := http.NewRequestWithContext(ctx, http.MethodPost, strings.TrimRight(base, "/")+"/v1/messages", bytes.NewReader(body))
 	if err != nil {

@@ -10,7 +10,7 @@ deploy/    Caddyfile, systemd units, backup script
 
 ## Run locally
 
-Needs Go 1.24+, Node 22+, a Tavily key and an Anthropic key.
+Needs Go 1.26+, Node 22+, a Tavily key and an Anthropic key.
 
 ```sh
 cp .env.example .env    # fill in keys; APP_TOKEN=$(openssl rand -hex 32)
@@ -31,45 +31,55 @@ cd web && npm ci && npm run dev    # http://localhost:3000
 
 Tests (no network): `cd backend && go vet ./... && go test ./...`; `cd web && npm run typecheck`.
 
-## Deploy to a VPS (Debian/Ubuntu)
+## Deploy
+
+The full walkthrough, with costs, is the "Quiet: deploy plan and costs" doc in the project. In short, on an Ubuntu 24.04 server (AWS Lightsail, 2 GB):
 
 ```sh
-# 1. Packages
-sudo apt install -y caddy sqlite3 git golang nodejs npm   # or install Go 1.24+ / Node 22+ from upstream
+# Tools
+sudo apt update && sudo apt install -y caddy sqlite3 git
+curl -fsSL https://deb.nodesource.com/setup_22.x | sudo -E bash - && sudo apt install -y nodejs
+sudo snap install go --classic            # go.mod needs Go 1.26+
 
-# 2. User, code, config
+# Code (private repo: add ~/.ssh/nam-news.pub as a read-only deploy key on GitHub first)
+ssh-keygen -t ed25519 -N "" -f ~/.ssh/nam-news -C quiet-server
+GIT_SSH_COMMAND="ssh -i ~/.ssh/nam-news -o StrictHostKeyChecking=accept-new" git clone git@github.com:namvtran-bink/nam-news.git
+sudo mv nam-news /opt/quiet
+git -C /opt/quiet config core.sshCommand "ssh -i /home/ubuntu/.ssh/nam-news"
+
+# Config
 sudo useradd --system --home /var/lib/quiet --shell /usr/sbin/nologin quiet
-sudo git clone <this repo> /opt/quiet
-sudo mkdir -p /etc/quiet /var/lib/quiet && sudo chown quiet:quiet /var/lib/quiet
-sudo cp /opt/quiet/.env.example /etc/quiet/quiet.env
+sudo mkdir -p /etc/quiet && sudo cp /opt/quiet/.env.example /etc/quiet/quiet.env
 sudo chown root:quiet /etc/quiet/quiet.env && sudo chmod 640 /etc/quiet/quiet.env
-sudoedit /etc/quiet/quiet.env    # keys, APP_TOKEN, APP_PASSWORD
+sudo nano /etc/quiet/quiet.env            # keys, APP_PASSWORD, APP_TOKEN=$(openssl rand -hex 32)
 
-# 3. Build
-cd /opt/quiet/backend && sudo go build -o /opt/quiet/bin/quiet ./cmd/quiet
-cd /opt/quiet/web && sudo npm ci && sudo npm run build
-sudo chown -R quiet:quiet /opt/quiet/web/.next
+# Build
+mkdir -p /opt/quiet/bin
+cd /opt/quiet/backend && go build -o /opt/quiet/bin/quiet ./cmd/quiet
+cd /opt/quiet/web && npm ci && npm run build
 
-# 4. Services
+# Services
 sudo cp /opt/quiet/deploy/quiet-*.service /etc/systemd/system/
 sudo systemctl daemon-reload && sudo systemctl enable --now quiet-backend quiet-web
 
-# 5. TLS: edit the domain in deploy/Caddyfile (your domain, or <ip>.sslip.io), then
-sudo cp /opt/quiet/deploy/Caddyfile /etc/caddy/Caddyfile && sudo systemctl reload caddy
+# HTTPS (your domain, or <ip>.sslip.io)
+sed "s/quiet.example.com/YOUR-IP.sslip.io/" /opt/quiet/deploy/Caddyfile | sudo tee /etc/caddy/Caddyfile
+sudo systemctl reload caddy
 
-# 6. Backups, daily at 04:15, keeps 7
+# Backups, daily at 04:15, keeps 7
 echo '15 4 * * * quiet /opt/quiet/deploy/backup.sh' | sudo tee /etc/cron.d/quiet-backup
 
-# 7. Seed your topics (each runs once and is followed daily)
-sudo -u quiet bash -c 'set -a; . /etc/quiet/quiet.env; /opt/quiet/bin/quiet run -follow "AI policy, substantive only"'
-
-# 8. Prove the daily job once
+# Prove the daily job once
 sudo -u quiet bash -c 'set -a; . /etc/quiet/quiet.env; curl -s -X POST -H "Authorization: Bearer $APP_TOKEN" localhost:8080/api/admin/run-daily'
 ```
 
-Only ports 80/443 need to be open (`sudo ufw allow 22,80,443/tcp && sudo ufw enable`); the backend and Next.js listen on 127.0.0.1 only.
+Seed topics from the web page (type a topic, then Follow daily), or with `quiet run -follow "<text>"`.
+
+Only ports 22, 80 and 443 need to be open; the backend and Next.js listen on 127.0.0.1 only.
 
 Logs: `journalctl -u quiet-backend -f`. Each topic run is also recorded in the `runs` table.
+
+Update after a push: `cd /opt/quiet && git pull`, rebuild both, then `sudo systemctl restart quiet-backend quiet-web`.
 
 ## API
 
