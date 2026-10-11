@@ -48,6 +48,34 @@ mac/schedule.sh on          # mac/schedule.sh off to stop; log in ~/.quiet/updat
 
 Data lives in `~/.quiet/` (database, built binary, the site). The published page is public to anyone with the link and is marked noindex.
 
+## Run in Docker (on your Mac)
+
+Same as the Mac setup, packaged in one container. Needs Docker Desktop.
+
+**One-time setup:**
+
+```sh
+git clone git@github.com:namvtran-bink/nam-news.git ~/nam-news && cd ~/nam-news
+cp docker/env.example docker/.env
+open -e docker/.env        # Tavily + Anthropic keys, and Cloudflare: CF_PAGES_PROJECT, CLOUDFLARE_API_TOKEN, CLOUDFLARE_ACCOUNT_ID
+docker compose build
+docker compose run --rm quiet wrangler pages project create nam-news --production-branch main
+```
+
+The Cloudflare API token needs the **Cloudflare Pages: Edit** permission (Cloudflare dashboard, My Profile, API Tokens). The account ID is on the dashboard's Workers & Pages page.
+
+**Use it:**
+
+```sh
+docker compose run --rm quiet add "AI policy, substantive only"   # follow a topic (fetches once now)
+docker compose run --rm quiet topics                              # list
+docker compose run --rm quiet drop 3                              # stop following
+docker compose run --rm quiet update                              # fetch + publish now
+docker compose up -d                                              # run update every day at 05:30 (Asia/Saigon)
+```
+
+The database and the built page live in `./data` (`data/site/index.html`). The daily scheduler catches up if the Mac was asleep at 05:30, as long as Docker Desktop is running. Logs: `docker compose logs -f`.
+
 ## Run locally (server version)
 
 Needs Go 1.26+, Node 22+, a Tavily key and an Anthropic key.

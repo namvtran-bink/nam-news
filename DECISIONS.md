@@ -25,3 +25,4 @@ Choices the plan left open, one line each.
 - The static page is public-by-link (noindex) with no password; Cloudflare Access can add one later if needed.
 - New CLI commands for Mac mode: `add` (= `run -follow`), `topics`, `drop <id>`, `render [-o dir]`. `render`, `topics` and `drop` need no API keys.
 - Mac data lives in `~/.quiet/`; the scheduled run uses launchd at 05:30 local time and catches up after sleep.
+- Docker mode: one image (Go binary + wrangler on node:22-slim). `schedule` (default command) checks every 5 minutes and runs `update` once a day after $RUN_AT, so it catches up after the Mac sleeps. Cloudflare auth uses an API token, since `wrangler login` needs a browser callback that doesn't work inside a container. Data is bind-mounted to ./data so the page is visible on the Mac.
