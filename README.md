@@ -28,11 +28,9 @@ npx --yes wrangler@4 pages project create nam-news --production-branch main
 **Topics** (each `add` runs once right away, then daily):
 
 ```sh
-export DB_PATH=~/.quiet/quiet.db
-set -a; . mac/.env; set +a
-go run ./backend/cmd/quiet add "AI policy, substantive only"
-go run ./backend/cmd/quiet topics
-go run ./backend/cmd/quiet drop 3
+mac/quiet add "AI policy, substantive only"
+mac/quiet topics
+mac/quiet drop 3
 ```
 
 **Update the page** whenever you like:
