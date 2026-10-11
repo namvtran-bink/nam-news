@@ -21,3 +21,7 @@ Choices the plan left open, one line each.
 - Next.js 15.5 (App Router) with `postcss` pinned to a patched version via `overrides` (npm audit clean).
 - The web unit runs `node .../next start` directly (not `npm run start`), so npm never needs a writable home under systemd's sandboxing.
 - Deploy target: AWS Lightsail 2 GB (Singapore), Ubuntu 24.04, Node 22 from NodeSource, Go from snap; private repo cloned with a read-only deploy key.
+- Mac mode (owner's request, 2026-10-11): no server. `mac/update.sh` runs `quiet daily` then `quiet render`, which writes one self-contained `index.html`; Cloudflare Pages (free, works with a private repo via direct upload) hosts it.
+- The static page is public-by-link (noindex) with no password; Cloudflare Access can add one later if needed.
+- New CLI commands for Mac mode: `add` (= `run -follow`), `topics`, `drop <id>`, `render [-o dir]`. `render`, `topics` and `drop` need no API keys.
+- Mac data lives in `~/.quiet/`; the scheduled run uses launchd at 05:30 local time and catches up after sleep.

@@ -1,9 +1,13 @@
 // Command quiet is the Quiet backend: API server with the daily scheduler,
-// plus terminal subcommands for running topics by hand.
+// plus terminal subcommands for running everything by hand (the Mac setup).
 //
 //	quiet serve                     API on 127.0.0.1:8080 + daily job at 05:30
 //	quiet run [-follow] "<text>"    turn text into a topic, run it once, print the result
+//	quiet add "<text>"              same as run -follow: follow a new topic daily
+//	quiet topics                    list followed topics
+//	quiet drop <id>                 stop following a topic
 //	quiet daily                     run the daily job once now
+//	quiet render [-o dir]           write today's page as a static site (dir/index.html)
 package main
 
 import (
@@ -27,6 +31,7 @@ import (
 	"quiet/internal/job"
 	"quiet/internal/llm"
 	"quiet/internal/search"
+	"quiet/internal/static"
 )
 
 const listenAddr = "127.0.0.1:8080"
@@ -45,8 +50,16 @@ func main() {
 		err = serve(ctx)
 	case "run":
 		err = runOnce(ctx, os.Args[2:])
+	case "add":
+		err = runOnce(ctx, append([]string{"-follow"}, os.Args[2:]...))
+	case "topics":
+		err = listTopics(ctx)
+	case "drop":
+		err = dropTopic(ctx, os.Args[2:])
 	case "daily":
 		err = daily(ctx)
+	case "render":
+		err = render(ctx, os.Args[2:])
 	default:
 		usage()
 	}
@@ -56,7 +69,7 @@ func main() {
 }
 
 func usage() {
-	fmt.Fprintln(os.Stderr, `usage: quiet serve | quiet run [-follow] "<topic text>" | quiet daily`)
+	fmt.Fprintln(os.Stderr, `usage: quiet serve | run [-follow] "<topic text>" | add "<topic text>" | topics | drop <id> | daily | render [-o dir]`)
 	os.Exit(2)
 }
 
@@ -66,7 +79,7 @@ type config struct {
 	loc                                              *time.Location
 }
 
-func loadConfig(needToken bool) (config, error) {
+func loadConfig(needKeys, needToken bool) (config, error) {
 	c := config{
 		tavilyKey:    os.Getenv("TAVILY_API_KEY"),
 		anthropicKey: os.Getenv("ANTHROPIC_API_KEY"),
@@ -75,10 +88,10 @@ func loadConfig(needToken bool) (config, error) {
 		dbPath:       envOr("DB_PATH", "quiet.db"),
 	}
 	var missing []string
-	if c.tavilyKey == "" {
+	if needKeys && c.tavilyKey == "" {
 		missing = append(missing, "TAVILY_API_KEY")
 	}
-	if c.anthropicKey == "" {
+	if needKeys && c.anthropicKey == "" {
 		missing = append(missing, "ANTHROPIC_API_KEY")
 	}
 	if needToken && len(c.appToken) < 16 {
@@ -104,8 +117,8 @@ func envOr(key, def string) string {
 	return def
 }
 
-func setup(ctx context.Context, needToken bool) (config, *job.Runner, error) {
-	c, err := loadConfig(needToken)
+func setup(ctx context.Context, needKeys, needToken bool) (config, *job.Runner, error) {
+	c, err := loadConfig(needKeys, needToken)
 	if err != nil {
 		return c, nil, err
 	}
@@ -123,7 +136,7 @@ func setup(ctx context.Context, needToken bool) (config, *job.Runner, error) {
 }
 
 func serve(ctx context.Context) error {
-	c, runner, err := setup(ctx, true)
+	c, runner, err := setup(ctx, true, true)
 	if err != nil {
 		return err
 	}
@@ -166,7 +179,7 @@ func runOnce(ctx context.Context, args []string) error {
 	if fs.NArg() != 1 {
 		usage()
 	}
-	_, runner, err := setup(ctx, false)
+	_, runner, err := setup(ctx, true, false)
 	if err != nil {
 		return err
 	}
@@ -206,7 +219,7 @@ func runOnce(ctx context.Context, args []string) error {
 }
 
 func daily(ctx context.Context) error {
-	_, runner, err := setup(ctx, false)
+	_, runner, err := setup(ctx, true, false)
 	if err != nil {
 		return err
 	}
@@ -216,5 +229,67 @@ func daily(ctx context.Context) error {
 		return err
 	}
 	fmt.Printf("%d topics, %d ok, %d items kept, failed: %v\n", rep.Topics, rep.OK, rep.Kept, rep.Failed)
+	return nil
+}
+
+func listTopics(ctx context.Context) error {
+	_, runner, err := setup(ctx, false, false)
+	if err != nil {
+		return err
+	}
+	defer runner.DB.Close()
+	topics, err := runner.DB.TopicsByStatus(ctx, db.StatusFollowing)
+	if err != nil {
+		return err
+	}
+	if len(topics) == 0 {
+		fmt.Println(`no followed topics yet: quiet add "<what you want to follow>"`)
+	}
+	for _, t := range topics {
+		fmt.Printf("%3d  %-28s %s\n", t.ID, t.Name, t.Understood)
+	}
+	return nil
+}
+
+func dropTopic(ctx context.Context, args []string) error {
+	if len(args) != 1 {
+		usage()
+	}
+	id, err := strconv.ParseInt(args[0], 10, 64)
+	if err != nil {
+		return fmt.Errorf("topic id must be a number (see quiet topics)")
+	}
+	_, runner, err := setup(ctx, false, false)
+	if err != nil {
+		return err
+	}
+	defer runner.DB.Close()
+	if err := runner.DB.SetStatus(ctx, id, db.StatusDropped); errors.Is(err, db.ErrNotFound) {
+		return fmt.Errorf("no topic %d (see quiet topics)", id)
+	} else if err != nil {
+		return err
+	}
+	fmt.Println("dropped")
+	return nil
+}
+
+func render(ctx context.Context, args []string) error {
+	fs := flag.NewFlagSet("render", flag.ExitOnError)
+	out := fs.String("o", "site", "output directory")
+	_ = fs.Parse(args)
+	_, runner, err := setup(ctx, false, false)
+	if err != nil {
+		return err
+	}
+	defer runner.DB.Close()
+	page, err := (&api.Server{DB: runner.DB, Runner: runner}).BuildPage(ctx)
+	if err != nil {
+		return err
+	}
+	path, err := static.Write(*out, page)
+	if err != nil {
+		return err
+	}
+	fmt.Printf("wrote %s (%d stories)\n", path, page.Count)
 	return nil
 }

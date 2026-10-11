@@ -8,7 +8,49 @@ web/       Next.js: login, Today page, proxy routes (binds 127.0.0.1:3000)
 deploy/    Caddyfile, systemd units, backup script
 ```
 
-## Run locally
+## Run on your Mac (simplest setup)
+
+No server needed. Your Mac fetches the news and builds one static page; Cloudflare Pages hosts it for free.
+
+**One-time setup** (Terminal):
+
+```sh
+brew install go node
+git clone git@github.com:namvtran-bink/nam-news.git ~/nam-news && cd ~/nam-news
+cp mac/env.example mac/.env
+open -e mac/.env                          # paste your Tavily and Anthropic keys; set CF_PAGES_PROJECT=nam-news
+
+# Free Cloudflare account, then log in and create the site once
+npx --yes wrangler@4 login
+npx --yes wrangler@4 pages project create nam-news --production-branch main
+```
+
+**Topics** (each `add` runs once right away, then daily):
+
+```sh
+export DB_PATH=~/.quiet/quiet.db
+set -a; . mac/.env; set +a
+go run ./backend/cmd/quiet add "AI policy, substantive only"
+go run ./backend/cmd/quiet topics
+go run ./backend/cmd/quiet drop 3
+```
+
+**Update the page** whenever you like:
+
+```sh
+mac/update.sh               # fetch news, build, publish to https://nam-news.pages.dev
+mac/update.sh --no-fetch    # rebuild and publish without fetching
+```
+
+**Every morning automatically** (05:30 Mac time; if the Mac is asleep, it runs when it wakes):
+
+```sh
+mac/schedule.sh on          # mac/schedule.sh off to stop; log in ~/.quiet/update.log
+```
+
+Data lives in `~/.quiet/` (database, built binary, the site). The published page is public to anyone with the link and is marked noindex.
+
+## Run locally (server version)
 
 Needs Go 1.26+, Node 22+, a Tavily key and an Anthropic key.
 
