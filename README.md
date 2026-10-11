@@ -8,7 +8,29 @@ web/       Next.js: login, Today page, proxy routes (binds 127.0.0.1:3000)
 deploy/    Caddyfile, systemd units, backup script
 ```
 
-## Run on your Mac (simplest setup)
+## Run on GitHub Actions (no computer needed)
+
+The `Daily news` workflow runs every day at 05:30 Saigon time on GitHub's machines, fetches the news, and publishes the page to Cloudflare Pages. You manage topics from the Actions tab, which works from the GitHub phone app too. The database is kept on the `data` branch, one commit that's replaced on every run.
+
+**One-time setup:**
+
+1. Cloudflare (free account): create an API token with **Account → Cloudflare Pages → Edit**, and copy your **Account ID** from Workers & Pages.
+2. GitHub repo → **Settings → Secrets and variables → Actions → New repository secret**, four times: `TAVILY_API_KEY`, `ANTHROPIC_API_KEY`, `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID`.
+3. Optional repository variables: `CF_PAGES_PROJECT` (default `nam-news`, the site is `https://nam-news.pages.dev`) and `MODEL`.
+
+**Use it:** Actions → Daily news → **Run workflow**, then pick a command:
+
+| Command | Text box | What happens |
+|---|---|---|
+| `add` | the topic in your words | follows it, fetches it now, publishes |
+| `drop` | the topic id (see `topics`) | stops following it |
+| `topics` | | lists followed topics in the run log |
+| `update` | | fetches all topics now and publishes (same as the daily run) |
+| `render` | | republishes without fetching |
+
+The Cloudflare Pages project is created on the first publish. Scheduled runs can start a few minutes late; that's GitHub, not the app.
+
+## Run on your Mac
 
 No server needed. Your Mac fetches the news and builds one static page; Cloudflare Pages hosts it for free.
 

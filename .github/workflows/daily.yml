@@ -1,0 +1,62 @@
+name: Daily news
+
+on:
+  schedule:
+    - cron: "30 22 * * *" # 05:30 Asia/Saigon (UTC+7). GitHub may start scheduled runs a few minutes late.
+  workflow_dispatch:
+    inputs:
+      command:
+        description: "What to do"
+        type: choice
+        options: [update, add, drop, topics, render]
+        default: update
+      text:
+        description: "Topic to follow (add) or topic id (drop)"
+        required: false
+
+concurrency:
+  group: quiet # one run at a time, so database writes never collide
+  cancel-in-progress: false
+
+permissions:
+  contents: write # push the database to the data branch
+
+jobs:
+  quiet:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-go@v5
+        with:
+          go-version-file: backend/go.mod
+          cache-dependency-path: backend/go.sum
+
+      - name: Build
+        run: cd backend && go build -o ../quiet ./cmd/quiet
+
+      - name: Restore database
+        id: restore
+        run: .github/scripts/quiet.sh restore
+
+      - name: Run
+        env:
+          TAVILY_API_KEY: ${{ secrets.TAVILY_API_KEY }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          MODEL: ${{ vars.MODEL || 'claude-haiku-5-5' }}
+          TZ: Asia/Saigon
+          COMMAND: ${{ inputs.command || 'update' }}
+          TEXT: ${{ inputs.text }}
+        run: .github/scripts/quiet.sh run "$COMMAND" "$TEXT"
+
+      - name: Save database
+        if: always() && steps.restore.outcome == 'success'
+        run: .github/scripts/quiet.sh save
+
+      - name: Publish
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CF_PAGES_PROJECT: ${{ vars.CF_PAGES_PROJECT || 'nam-news' }}
+        run: .github/scripts/quiet.sh publish
