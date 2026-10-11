@@ -1,0 +1,21 @@
+[Unit]
+Description=Quiet backend (API + daily job)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+User=quiet
+Group=quiet
+EnvironmentFile=/etc/quiet/quiet.env
+ExecStart=/opt/quiet/bin/quiet serve
+Restart=on-failure
+RestartSec=5
+StateDirectory=quiet
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+PrivateTmp=true
+ReadWritePaths=/var/lib/quiet
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,22 @@
+[Unit]
+Description=Quiet web (Next.js)
+After=network-online.target quiet-backend.service
+Wants=network-online.target
+
+[Service]
+User=quiet
+Group=quiet
+EnvironmentFile=/etc/quiet/quiet.env
+Environment=NODE_ENV=production
+Environment=NEXT_TELEMETRY_DISABLED=1
+WorkingDirectory=/opt/quiet/web
+ExecStart=/usr/bin/npm run start
+Restart=on-failure
+RestartSec=5
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target
