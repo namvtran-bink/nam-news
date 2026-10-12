@@ -1,8 +1,9 @@
 name: Daily news
 
 on:
-  schedule:
-    - cron: "30 22 * * *" # 05:30 Asia/Saigon (UTC+7). GitHub may start scheduled runs a few minutes late.
+  # Daily schedule paused until setup is finished. To turn it back on, uncomment these two lines.
+  # schedule:
+  #   - cron: "30 22 * * *" # 05:30 Asia/Saigon (UTC+7). GitHub may start scheduled runs a few minutes late.
   workflow_dispatch:
     inputs:
       command:
