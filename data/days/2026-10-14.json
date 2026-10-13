@@ -1,0 +1,96 @@
+{
+  "date": "2026-10-14",
+  "gold_prices": {
+    "as_of": "Sáng 14/10/2026, theo Báo Đà Nẵng",
+    "source_url": "https://baodanang.vn/gia-vang-hom-nay-14-10-2026-vang-mieng-sjc-nhan-tron-9999-btmc-va-vang-the-gioi-3355066.html",
+    "rows": [
+      {
+        "type": "sjc_bar",
+        "label": "SJC miếng",
+        "currency": "VND",
+        "unit": "million VND per lượng",
+        "buy": 141.3,
+        "sell": 144.3,
+        "change": 0
+      },
+      {
+        "type": "btmc_ring_9999",
+        "label": "Nhẫn 9999 BTMC",
+        "currency": "VND",
+        "unit": "million VND per lượng",
+        "buy": 139.3,
+        "sell": 143.3,
+        "change": -0.1
+      },
+      {
+        "type": "world_spot",
+        "label": "World spot",
+        "currency": "USD",
+        "unit": "USD per troy ounce",
+        "price": 4178.97,
+        "change_pct": 0.2
+      }
+    ]
+  },
+  "notes": {
+    "childcare": "Nothing new this week worth your time for an 18-month-old."
+  },
+  "items": [
+    {
+      "id": "214f1101b6de",
+      "topic": "gold",
+      "title": "Gold firms as dollar, yields and oil retreat before CPI",
+      "url": "https://www.kitco.com/news/article/2026-10-13/gold-firms-dollar-yields-and-oil-retreat-cpi-kitco-am-report",
+      "source": "Kitco",
+      "published": "2026-10-13",
+      "lang": "en",
+      "kind": "Read",
+      "summary": "Spot gold rose 0.39% to $4,186.90 on 13 October as the dollar index eased toward 102.3, the 10-year Treasury yield slipped to about 5.19% and oil fell about 2%, ahead of Wednesday's US inflation data."
+    },
+    {
+      "id": "affa46a1b9cd",
+      "topic": "realestate",
+      "title": "Lãi suất cao đẩy thị trường nhà ở sang cuộc đua “khả năng sở hữu”",
+      "url": "https://vietstock.vn/2026/10/lai-suat-cao-day-thi-truong-nha-o-sang-cuoc-dua-kha-nang-so-huu-4220-1501674.htm",
+      "source": "Vietstock",
+      "published": "2026-10-13",
+      "lang": "vi",
+      "kind": "Read",
+      "summary": "Theo Viện DXS-FERI, lãi suất vay mua nhà thả nổi quanh 13-15%/năm khiến chủ đầu tư cạnh tranh bằng phương án thanh toán và hỗ trợ tài chính thay vì giá bán. 76% người mua cần từ 3 tháng trở lên để ra quyết định."
+    },
+    {
+      "id": "46bc893291aa",
+      "topic": "engineering",
+      "title": "Spotify more than doubled monthly code changes as AI accelerated development",
+      "url": "https://www.infoq.com/news/2026/10/spotify-ai-quality-controls/",
+      "source": "InfoQ",
+      "published": "2026-10-12",
+      "lang": "en",
+      "kind": "Read",
+      "summary": "AI-assisted development raised Spotify's monthly merged changes from about 8,100 to 17,000 year over year, prompting a review of quality and reliability controls across nearly 3,000 services. After a June pipeline incident, it added monitoring, fixed a scheduler bug and increased capacity."
+    },
+    {
+      "id": "c66a8c6977ba",
+      "topic": "ai",
+      "title": "Context Language Models: self-managing context to improve performance and cut compute",
+      "url": "https://www.infoq.com/news/2026/10/context-language-models/",
+      "source": "InfoQ",
+      "published": "2026-10-11",
+      "lang": "en",
+      "kind": "Read",
+      "summary": "Researchers from Meta, MIT and the University of Washington propose models that edit their own context instead of relying on fixed summarization or retrieval. On BrowseComp-Plus, zero-shot CLMs reported 11.4% higher accuracy with 21.5% fewer FLOPs."
+    },
+    {
+      "id": "0992fbd05c1d",
+      "topic": "podcasts",
+      "title": "What does it really mean to program with AI? A conversation with Joy Ebertz",
+      "url": "https://www.infoq.com/podcasts/what-really-mean-program-ai/",
+      "source": "The InfoQ Podcast",
+      "published": "2026-10-12",
+      "lang": "en",
+      "kind": "Listen",
+      "summary": "Michael Stiefel and Joy Ebertz discuss how AI-assisted coding changes the work of architects and developers: monolith versus microservices trade-offs, the need for precise requirements and tests, and how juniors learn when AI does the tasks they once learned from.",
+      "duration": "45 min"
+    }
+  ]
+}
