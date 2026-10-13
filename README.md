@@ -7,7 +7,7 @@ A calm daily news page: gold, Vietnamese real estate, child care, engineering, A
 ## How it works
 
 - Every morning at 05:48 (Asia/Ho_Chi_Minh), a scheduled Claude routine follows [`prompts/morning-run.md`](prompts/morning-run.md). It researches the topics in [`config/topics.json`](config/topics.json) and commits that day's news as `data/days/<date>.json`.
-- GitHub Pages serves this repo's `main` branch as-is. [`index.html`](index.html) loads `config/topics.json`, `data/index.json` and the day files and shows them. There is no build step.
+- GitHub Pages serves this repo's `main` branch as-is. [`index.html`](index.html) (a calm light design with a daily landscape photo from Wikimedia Commons) loads `config/topics.json`, `data/index.json` and the day files and shows them. There is no build step.
 - Every day is kept. The page opens on the latest day, and "Earlier days" goes back through history.
 - The later list is saved in your browser, so the phone and the laptop each keep their own.
 
