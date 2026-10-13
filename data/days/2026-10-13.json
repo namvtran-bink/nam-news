@@ -1,0 +1,160 @@
+{
+  "date": "2026-10-13",
+  "gold_prices": {
+    "as_of": "Domestic prices as of 05:00, world price this morning, both from Báo Đà Nẵng.",
+    "source_url": "https://baodanang.vn/gia-vang-hom-nay-13-10-2026-vang-mieng-sjc-nhan-tron-9999-btmc-va-vang-the-gioi-3354961.html",
+    "rows": [
+      {
+        "type": "sjc_bar",
+        "label": "SJC miếng",
+        "currency": "VND",
+        "unit": "million VND per lượng",
+        "buy": 141.3,
+        "sell": 144.3,
+        "change": -0.5
+      },
+      {
+        "type": "btmc_ring_9999",
+        "label": "Nhẫn 9999 BTMC",
+        "currency": "VND",
+        "unit": "million VND per lượng",
+        "buy": 139.4,
+        "sell": 143.4,
+        "change": -0.2
+      },
+      {
+        "type": "world_spot",
+        "label": "World spot",
+        "currency": "USD",
+        "unit": "USD per troy ounce",
+        "price": 4172.36,
+        "change_pct": -0.5
+      }
+    ]
+  },
+  "notes": {},
+  "items": [
+    {
+      "id": "6af3435f69cd",
+      "topic": "gold",
+      "title": "Giá vàng hôm nay 13/10: SJC và nhẫn 9999 cùng giảm",
+      "url": "https://baodanang.vn/gia-vang-hom-nay-13-10-2026-vang-mieng-sjc-nhan-tron-9999-btmc-va-vang-the-gioi-3354961.html",
+      "source": "Báo Đà Nẵng",
+      "published": "2026-10-13",
+      "lang": "vi",
+      "kind": "Read",
+      "summary": "Vàng miếng SJC giảm 500.000 đồng/lượng, nhẫn 9999 BTMC giảm 200.000 đồng. Vàng thế giới quay đầu sau khi chạm đỉnh một tuần, khi thị trường chờ số liệu lạm phát CPI của Mỹ vào thứ Tư và phát biểu của Chủ tịch Fed."
+    },
+    {
+      "id": "21dda18bfbe1",
+      "topic": "gold",
+      "title": "Gold slips from its peak as the dollar and oil climb",
+      "url": "https://azat.tv/en/gold-prices-slip-dollar-oil-gains-october-2026/",
+      "source": "Azat TV",
+      "published": "2026-10-13",
+      "lang": "en",
+      "kind": "Read",
+      "summary": "Spot gold closed Monday at $4,164.96, down 0.69%, as the dollar index reached its strongest level since April 2025 and oil rose on Middle East tensions. Traders price about an 85% chance of a Fed rate hike by December, which makes holding gold more costly."
+    },
+    {
+      "id": "715d2a75e5f5",
+      "topic": "realestate",
+      "title": "Lãi suất neo cao kéo thị trường nhà ở vào nhịp điều chỉnh mạnh",
+      "url": "https://vietstock.vn/2026/10/lai-suat-neo-cao-keo-thi-truong-nha-o-vao-nhip-dieu-chinh-manh-4220-1501672.htm",
+      "source": "Vietstock",
+      "published": "2026-10-12",
+      "lang": "vi",
+      "kind": "Read",
+      "summary": "Theo DXS-FERI, giá sơ cấp quý 3 giảm 5–20% so với quý 2, mạnh nhất ở miền Bắc (15–20%), còn tỷ lệ hấp thụ chỉ 20–25%. Lãi suất thả nổi sau ưu đãi đã lên 13–15%/năm, khiến nhiều người mua nhà để ở chọn chờ thêm."
+    },
+    {
+      "id": "45a5f1bfaf02",
+      "topic": "childcare",
+      "title": "New AAP guidance on iron deficiency flags toddlers who drink a lot of milk",
+      "url": "https://www.contemporarypediatrics.com/view/updated-aap-guidance-changes-iron-deficiency-screening-and-treatment-in-children",
+      "source": "Contemporary Pediatrics",
+      "published": "2026-09-16",
+      "lang": "en",
+      "kind": "Read",
+      "summary": "Toddlers moving to cow's or plant milk are at higher risk of low iron, especially above 24 oz (about 700 ml) a day. Formula-fed children should be screened at 15–18 months, once they have switched to milk."
+    },
+    {
+      "id": "bd0137c2c4b9",
+      "topic": "childcare",
+      "title": "Pediatricians renew their call to ban raw milk, citing bird flu",
+      "url": "https://www.contemporarypediatrics.com/view/aap-renews-call-for-raw-milk-sales-ban-cites-emerging-h5n1-risk",
+      "source": "Contemporary Pediatrics",
+      "published": null,
+      "lang": "en",
+      "kind": "Read",
+      "summary": "The American Academy of Pediatrics' updated policy urges a ban on selling raw milk and raw dairy because of H5N1, Listeria and E. coli. It names young children among the groups most at risk."
+    },
+    {
+      "id": "10a29e92b941",
+      "topic": "engineering",
+      "title": "How Grab cut its counter service's p99 read latency in half",
+      "url": "https://www.infoq.com/news/2026/10/grab-counter-aerospike-migration/",
+      "source": "InfoQ",
+      "published": "2026-10-07",
+      "lang": "en",
+      "kind": "Read",
+      "summary": "Grab folded its separate 15-minute, hourly and daily counter rows into one record per counter with atomic map increments. Using a storage facade and shadow reads that ramped from 5% to 100%, it switched databases with no downtime, using a third of the disk and paying about half as much per node."
+    },
+    {
+      "id": "faafb976db9f",
+      "topic": "engineering",
+      "title": "Shopify shrank its checkout extensions by up to 85% by moving to web components",
+      "url": "https://www.infoq.com/news/2026/10/shopify-web-components/",
+      "source": "InfoQ",
+      "published": "2026-10-09",
+      "lang": "en",
+      "kind": "Read",
+      "summary": "Shopify moved five high-traffic checkout extensions from React to Preact and Polaris web components, swapping a 73 KB template library for a 13 KB parser checked against 42,000 lines of real merchant configs. Bundles fell 40–85% and load time about 8%, though developers criticise unversioned CDN delivery."
+    },
+    {
+      "id": "a3edb47722c7",
+      "topic": "ai",
+      "title": "GitHub rewrote 800,000 lines of Copilot from TypeScript to Rust, mostly with AI agents",
+      "url": "https://www.infoq.com/news/2026/10/github-copilot-rust-migration/",
+      "source": "InfoQ",
+      "published": "2026-10-09",
+      "lang": "en",
+      "kind": "Read",
+      "summary": "The team replaced the code piece by piece behind a temporary Node bridge and kept shipping throughout, with 135 releases in 14.5 weeks. Existing end-to-end tests and human review caught the regressions the agents introduced. Startup in one measured scenario fell from 5.25 s to 292 ms."
+    },
+    {
+      "id": "5a3f1f4a82c5",
+      "topic": "ai",
+      "title": "Pay-per-use APIs need hard budget caps by default",
+      "url": "https://simonwillison.net/2026/Oct/3/default-hard-budget-caps/",
+      "source": "Simon Willison",
+      "published": "2026-10-03",
+      "lang": "en",
+      "kind": "Read",
+      "summary": "Coding agents make it easy to spin up paid services, so surprise bills get more likely, and warning emails don't stop them. Willison argues that limits should cut off service by default, and notes that AWS (September) and Google Cloud (July) now offer spend caps."
+    },
+    {
+      "id": "c2e92180363e",
+      "topic": "podcasts",
+      "title": "Building resilient systems with Sam Newman",
+      "url": "https://newsletter.pragmaticengineer.com/p/building-resilient-systems-with-sam",
+      "source": "The Pragmatic Engineer",
+      "published": "2026-10-07",
+      "lang": "en",
+      "kind": "Listen",
+      "summary": "The author of Building Microservices calls microservices a \"last resort\" and boils distributed-systems failure down to three facts: messages take time, parts go offline, and resources run out. He covers idempotency keys, fail-open vs fail-closed, and why modular boundaries let AI work safely inside them.",
+      "duration": "1 h 58 min"
+    },
+    {
+      "id": "7e6d424cda15",
+      "topic": "podcasts",
+      "title": "How will we train developers if AI does the routine work?",
+      "url": "https://www.infoq.com/podcasts/train-developers-ai-routine-work/",
+      "source": "InfoQ Podcast",
+      "published": "2026-09-14",
+      "lang": "en",
+      "kind": "Listen",
+      "summary": "Scott Hanselman on how newcomers learn the craft when agents take over the work juniors used to do. He proposes a mentorship model borrowed from nursing."
+    }
+  ]
+}

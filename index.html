@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Nam's Morning</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600&family=Literata:opsz,wght@7..72,500;7..72,600&display=swap">
+<style>
+/* Layout: one calm reading column (max ~640px); each day's news is loaded from data/days/<date>.json, then the later list and earlier days. */
+:root {
+  --bg: #EEF1EF;
+  --surface: #F8FAF9;
+  --ink: #17201D;
+  --muted: #56625D;
+  --rule: #D3DAD6;
+  --accent: #0E6F61;
+  --gold: #8A6A12;
+  --down: #A23B2A;
+  --font-display: "Literata", Georgia, "Times New Roman", serif;
+  --font-ui: "Be Vietnam Pro", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #121816; --surface: #1A2220; --ink: #E3E9E6; --muted: #9AA8A2;
+    --rule: #2C3633; --accent: #5CC3B0; --gold: #D9B45A; --down: #EE8A78; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #121816; --surface: #1A2220; --ink: #E3E9E6; --muted: #9AA8A2;
+  --rule: #2C3633; --accent: #5CC3B0; --gold: #D9B45A; --down: #EE8A78; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font-family: var(--font-ui); font-size: 16px; line-height: 1.55; }
+.wrap { max-width: 640px; margin: 0 auto; padding-inline: 18px; padding-block: 28px 64px; display: flex; flex-direction: column; gap: 36px; }
+a { color: inherit; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+
+header { display: flex; flex-direction: column; gap: 6px; }
+.proto { align-self: flex-start; font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--accent); border: 1px solid var(--accent); border-radius: 999px; padding: 2px 10px; }
+h1 { font-family: var(--font-display); font-weight: 600; font-size: 34px; line-height: 1.15; margin: 4px 0 0; text-wrap: balance; }
+.meta { color: var(--muted); font-size: 14px; display: flex; flex-wrap: wrap; gap: 4px 12px; }
+.meta a { color: var(--accent); text-decoration: none; font-weight: 500; }
+
+.prices { background: var(--surface); border: 1px solid var(--rule); border-radius: 10px; padding: 14px 16px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.price { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.price .k { font-size: 12px; color: var(--muted); letter-spacing: .04em; text-transform: uppercase; }
+.price .v { font-variant-numeric: tabular-nums; font-weight: 600; font-size: 17px; color: var(--gold); }
+.price .u { font-size: 12px; color: var(--muted); }
+.price .d { font-variant-numeric: tabular-nums; font-size: 13px; color: var(--down); }
+.prices .asof { grid-column: 1 / -1; font-size: 12px; color: var(--muted); border-top: 1px solid var(--rule); padding-top: 8px; }
+@media (max-width: 460px) { .prices { grid-template-columns: repeat(2, minmax(0, 1fr)); } .price.world { grid-column: 1 / -1; } }
+
+section.topic { display: flex; flex-direction: column; gap: 4px; }
+.topic-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; border-bottom: 1px solid var(--ink); padding-bottom: 6px; }
+h2 { font-family: var(--font-ui); font-size: 13px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; margin: 0; }
+.rhythm { font-size: 12px; color: var(--muted); white-space: nowrap; }
+.empty { color: var(--muted); font-size: 15px; padding-block: 10px; }
+
+article { display: flex; flex-direction: column; gap: 6px; padding-block: 16px; border-bottom: 1px solid var(--rule); }
+article:last-child { border-bottom: 0; }
+.src { font-size: 13px; color: var(--muted); display: flex; flex-wrap: wrap; gap: 0 8px; }
+.src .lang { font-size: 11px; letter-spacing: .06em; border: 1px solid var(--rule); border-radius: 4px; padding: 0 5px; }
+h3 { font-family: var(--font-display); font-weight: 500; font-size: 20px; line-height: 1.3; margin: 0; text-wrap: balance; }
+h3 a { text-decoration: none; }
+h3 a:hover { text-decoration: underline; text-decoration-color: var(--accent); }
+.sum { margin: 0; max-width: 62ch; }
+.row { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.open { color: var(--accent); font-weight: 500; font-size: 14px; text-decoration: none; min-height: 44px; display: inline-flex; align-items: center; }
+.save { font: inherit; font-size: 14px; font-weight: 500; color: var(--ink); background: transparent; border: 1px solid var(--rule); border-radius: 999px; min-height: 44px; padding: 0 16px; cursor: pointer; }
+.save[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--bg); }
+.dur { font-variant-numeric: tabular-nums; }
+
+#later { background: var(--surface); border: 1px solid var(--rule); border-radius: 10px; padding: 16px; display: flex; flex-direction: column; gap: 8px; scroll-margin-top: 16px; }
+#later h2 { color: var(--accent); }
+#later ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; }
+#later li { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-block: 8px; border-top: 1px solid var(--rule); }
+#later li:first-child { border-top: 0; }
+#later li a { min-width: 0; text-decoration: none; font-weight: 500; }
+#later li .k { display: block; font-size: 12px; color: var(--muted); font-weight: 400; }
+.done { font: inherit; font-size: 13px; color: var(--muted); background: transparent; border: 1px solid var(--rule); border-radius: 999px; min-height: 44px; padding: 0 14px; cursor: pointer; flex-shrink: 0; }
+.note { font-size: 13px; color: var(--muted); margin: 0; }
+
+footer { text-align: center; color: var(--muted); font-family: var(--font-display); font-size: 18px; }
+@media (prefers-reduced-motion: no-preference) { .save { transition: background .15s, color .15s; } }
+</style>
+<style>
+:root { --up: #2F7A3E; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --up: #7FCB8C; } }
+:root[data-theme="dark"] { --up: #7FCB8C; }
+.price .d.up { color: var(--up); }
+.price .d.flat { color: var(--muted); }
+.daynav { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.daynav button { font: inherit; font-size: 14px; color: var(--accent); background: transparent; border: 1px solid var(--rule); border-radius: 999px; min-height: 44px; padding: 0 14px; cursor: pointer; }
+.daynav button:disabled { color: var(--muted); opacity: .5; cursor: default; }
+.past { font-size: 13px; color: var(--accent); }
+.status { color: var(--muted); padding-block: 24px; }
+#earlier { display: flex; flex-direction: column; gap: 8px; }
+#earlier ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+#earlier li button { font: inherit; font-size: 14px; font-variant-numeric: tabular-nums; color: var(--ink); background: var(--surface); border: 1px solid var(--rule); border-radius: 8px; min-height: 44px; padding: 0 12px; cursor: pointer; }
+#earlier li button[aria-current="true"] { border-color: var(--accent); color: var(--accent); font-weight: 600; }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header>
+    <div class="daynav">
+      <button type="button" id="prev" disabled>← Older</button>
+      <button type="button" id="next" disabled>Newer →</button>
+    </div>
+    <span class="past" id="past-note" hidden>An earlier day</span>
+    <h1 id="day-title">Your morning page</h1>
+    <div class="meta"><span id="day-count"></span><span id="day-time"></span><a href="#later">Later list (<span id="later-count">0</span>)</a></div>
+  </header>
+
+  <div id="day"><p class="status" id="status">Loading your news…</p></div>
+
+  <section id="later" aria-labelledby="t-later">
+    <div class="topic-head"><h2 id="t-later">Listen / read later</h2><span class="rhythm">Kept until done</span></div>
+    <ul id="later-list"></ul>
+    <p class="note" id="later-empty">Nothing saved yet. Tap Save on any story or podcast and it stays here, across days, until you mark it done.</p>
+  </section>
+
+  <section id="earlier" aria-labelledby="t-earlier">
+    <div class="topic-head"><h2 id="t-earlier">Earlier days</h2><span class="rhythm" id="earlier-count"></span></div>
+    <ul id="earlier-list"></ul>
+  </section>
+
+  <footer id="end">That's today. Nothing else is queued.</footer>
+</div>
+
+<script>
+// Data comes from JSON files published next to this page (copied from the repo):
+//   config/topics.json, data/index.json, data/days/<date>.json
+// The "later" list is kept in this browser (localStorage), or in the page's
+// own storage when it is opened as a Claude artifact.
+(function () {
+  var topics = [];
+  var dates = [];         // newest first
+  var cache = {};         // date -> day JSON
+  var current = null;
+  var saved = {};
+  var store = null;
+  var $ = function (id) { return document.getElementById(id); };
+
+  function el(tag, cls, text) {
+    var e = document.createElement(tag);
+    if (cls) e.className = cls;
+    if (text != null) e.textContent = text;
+    return e;
+  }
+  function getJSON(path) {
+    return fetch(path, { cache: "no-store" }).then(function (r) {
+      if (!r.ok) throw new Error(path + " " + r.status);
+      return r.json();
+    });
+  }
+  function safeUrl(u) { return /^https?:\/\//i.test(u || "") ? u : "#"; }
+  function fmtDate(iso, style) {
+    var p = (iso || "").split("-").map(Number);
+    if (p.length !== 3) return iso || "";
+    var d = new Date(Date.UTC(p[0], p[1] - 1, p[2]));
+    var opts = style === "long" ? { weekday: "long", day: "numeric", month: "long" }
+      : style === "short" ? { weekday: "short", day: "numeric", month: "short" }
+      : { day: "numeric", month: "short" };
+    opts.timeZone = "UTC";
+    return d.toLocaleDateString("en-GB", opts);
+  }
+  function vn(n) { return Number(n).toLocaleString("vi-VN", { maximumFractionDigits: 2 }); }
+
+  function itemNode(it) {
+    var a = el("article");
+    var src = el("div", "src");
+    src.appendChild(el("span", null, it.source || ""));
+    if (it.published) src.appendChild(el("span", null, fmtDate(it.published)));
+    if (it.duration) src.appendChild(el("span", "dur", it.duration));
+    if (it.lang) src.appendChild(el("span", "lang", String(it.lang).toUpperCase()));
+    a.appendChild(src);
+    var h = el("h3"); var link = el("a", null, it.title || "Untitled");
+    link.href = safeUrl(it.url); link.target = "_blank"; link.rel = "noopener";
+    h.appendChild(link); a.appendChild(h);
+    if (it.summary) a.appendChild(el("p", "sum", it.summary));
+    var row = el("div", "row");
+    var open = el("a", "open", (it.kind === "Listen" ? "Listen" : (it.lang === "vi" ? "Đọc bài gốc" : "Read original")) + " ↗");
+    open.href = safeUrl(it.url); open.target = "_blank"; open.rel = "noopener";
+    var btn = el("button", "save", "Save"); btn.type = "button";
+    btn.dataset.id = it.id;
+    btn.addEventListener("click", function () { saved[it.id] ? unsave(it.id) : save(it); });
+    row.appendChild(open); row.appendChild(btn); a.appendChild(row);
+    return a;
+  }
+
+  function priceCell(r, wide) {
+    var c = el("div", "price" + (wide ? " world" : ""));
+    c.appendChild(el("span", "k", r.label));
+    var change, dir;
+    if (r.currency === "VND") {
+      c.appendChild(el("span", "v", vn(r.buy) + " – " + vn(r.sell)));
+      c.appendChild(el("span", "u", "triệu đ/lượng · mua – bán"));
+      change = r.change; if (change != null) change = vn(Math.abs(change)) + " triệu";
+      dir = r.change;
+    } else {
+      c.appendChild(el("span", "v", "$" + Math.round(r.price).toLocaleString("en-US")));
+      c.appendChild(el("span", "u", "per troy ounce"));
+      change = r.change_pct; if (change != null) change = Math.abs(change).toLocaleString("en-US") + "%";
+      dir = r.change_pct;
+    }
+    if (change != null) {
+      var cls = dir > 0 ? "up" : dir < 0 ? "down" : "flat";
+      c.appendChild(el("span", "d " + cls, (dir > 0 ? "▲ " : dir < 0 ? "▼ " : "") + change));
+    }
+    return c;
+  }
+  function pricesNode(g) {
+    var box = el("div", "prices"); box.setAttribute("role", "group"); box.setAttribute("aria-label", "Gold prices");
+    var rows = g.rows || [];
+    rows.forEach(function (r, i) { box.appendChild(priceCell(r, i === rows.length - 1 && rows.length % 2 === 1)); });
+    if (g.as_of) box.appendChild(el("span", "asof", g.as_of));
+    return box;
+  }
+
+  function renderDay() {
+    var host = $("day"); host.textContent = "";
+    var d = cache[current];
+    if (!d) { host.appendChild(el("p", "status", dates.length ? "Loading…" : "No days saved yet.")); return; }
+    var stories = 0, pods = 0;
+    var items = d.items || [], notes = d.notes || {};
+    topics.forEach(function (t) {
+      var mine = items.filter(function (it) { return it.topic === t.key; });
+      var sec = el("section", "topic");
+      var head = el("div", "topic-head");
+      head.appendChild(el("h2", null, t.name));
+      if (t.rhythm) head.appendChild(el("span", "rhythm", t.rhythm));
+      sec.appendChild(head);
+      if (t.key === "gold" && d.gold_prices) sec.appendChild(pricesNode(d.gold_prices));
+      mine.forEach(function (it) { it.kind === "Listen" ? pods++ : stories++; sec.appendChild(itemNode(it)); });
+      if (!mine.length) sec.appendChild(el("p", "empty", notes[t.key] || "Nothing worth your time today."));
+      else if (notes[t.key]) sec.appendChild(el("p", "note", notes[t.key]));
+      host.appendChild(sec);
+    });
+    $("day-title").textContent = fmtDate(d.date, "long");
+    $("day-count").textContent = stories + (stories === 1 ? " story" : " stories") + (pods ? " · " + pods + (pods === 1 ? " podcast" : " podcasts") : "");
+    $("day-time").textContent = "about " + Math.max(1, Math.ceil(stories * 1.2)) + " min to read";
+    var idx = dates.indexOf(current);
+    $("prev").disabled = idx >= dates.length - 1;
+    $("next").disabled = idx <= 0;
+    $("past-note").hidden = idx === 0;
+    $("end").textContent = idx === 0 ? "That's today. Nothing else is queued." : "End of " + fmtDate(d.date, "short") + ".";
+    renderSaveButtons();
+  }
+
+  function renderEarlier() {
+    var ul = $("earlier-list"); ul.textContent = "";
+    dates.forEach(function (date) {
+      var li = el("li"); var b = el("button", null, fmtDate(date, "short")); b.type = "button";
+      b.setAttribute("aria-current", date === current ? "true" : "false");
+      b.addEventListener("click", function () { show(date); window.scrollTo(0, 0); });
+      li.appendChild(b); ul.appendChild(li);
+    });
+    $("earlier-count").textContent = dates.length ? dates.length + (dates.length === 1 ? " day" : " days") + " kept" : "";
+  }
+
+  function show(date) {
+    current = date; renderEarlier();
+    if (cache[date]) { renderDay(); return; }
+    renderDay();
+    getJSON("data/days/" + date + ".json").then(function (d) {
+      cache[date] = d; if (current === date) renderDay();
+    }).catch(function () {
+      if (current === date) { $("day").textContent = ""; $("day").appendChild(el("p", "status", "Couldn't load " + fmtDate(date, "short") + ". Reload the page to try again.")); }
+    });
+  }
+
+  function step(delta) {
+    var j = dates.indexOf(current) + delta;
+    if (j >= 0 && j < dates.length) { show(dates[j]); window.scrollTo(0, 0); }
+  }
+  $("prev").addEventListener("click", function () { step(1); });
+  $("next").addEventListener("click", function () { step(-1); });
+
+  function renderSaveButtons() {
+    document.querySelectorAll(".save").forEach(function (b) {
+      var on = !!saved[b.dataset.id];
+      b.setAttribute("aria-pressed", on ? "true" : "false");
+      b.textContent = on ? "Saved" : "Save";
+    });
+  }
+  function renderLater() {
+    var list = $("later-list"); list.textContent = "";
+    var keys = Object.keys(saved).sort(function (a, b) { return String(saved[b].savedAt || "").localeCompare(String(saved[a].savedAt || "")); });
+    keys.forEach(function (id) {
+      var s = saved[id];
+      var li = el("li");
+      var a = el("a", null, s.title || "Untitled"); a.href = safeUrl(s.url); a.target = "_blank"; a.rel = "noopener";
+      a.appendChild(el("span", "k", (s.kind || "Read") + " · " + (s.source || "")));
+      var b = el("button", "done", "Done"); b.type = "button";
+      b.setAttribute("aria-label", "Mark done: " + (s.title || ""));
+      b.addEventListener("click", function () { unsave(id); });
+      li.appendChild(a); li.appendChild(b); list.appendChild(li);
+    });
+    $("later-empty").hidden = keys.length > 0;
+    $("later-count").textContent = keys.length;
+    renderSaveButtons();
+  }
+  var LOCAL_KEY = "nam-news-later";
+  function loadLocal() { try { return JSON.parse(localStorage.getItem(LOCAL_KEY) || "{}"); } catch (e) { return {}; } }
+  function saveLocal() { try { localStorage.setItem(LOCAL_KEY, JSON.stringify(saved)); } catch (e) {} }
+  function save(it) {
+    var rec = { title: it.title || "", url: it.url || "", kind: it.kind || "Read", source: it.source || "", savedAt: new Date().toISOString() };
+    saved[it.id] = rec; renderLater();
+    if (store) store.collection("later").doc(it.id).set(rec).catch(function () {});
+    else saveLocal();
+  }
+  function unsave(id) {
+    delete saved[id]; renderLater();
+    if (store) store.collection("later").doc(id).delete().catch(function () {});
+    else saveLocal();
+  }
+
+  saved = loadLocal();
+  renderLater();
+  Promise.all([getJSON("config/topics.json"), getJSON("data/index.json")]).then(function (r) {
+    topics = r[0].topics || [];
+    dates = (r[1].days || []).slice().sort().reverse();
+    if (dates.length) show(dates[0]); else renderDay();
+  }).catch(function () { $("status").textContent = "Couldn't load your news. Reload the page to try again."; });
+
+  var useDb = window.claude && window.claude.use ? window.claude.use("db") : Promise.resolve(null);
+  useDb.then(function (db) {
+    if (!db) return;
+    store = db;
+    db.collection("later").onSnapshot(function (snap) {
+      var next = {};
+      snap.docs.forEach(function (d) { if (d.exists) next[d.id] = d.data(); });
+      saved = next; renderLater();
+    }, function () {});
+  }).catch(function () {});
+})();
+</script>
+</body>
+</html>

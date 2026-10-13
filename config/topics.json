@@ -1,0 +1,55 @@
+{
+  "timezone": "Asia/Ho_Chi_Minh",
+  "run_at": "05:48",
+  "max_items_total": 10,
+  "topics": [
+    {
+      "key": "gold",
+      "name": "Gold",
+      "rhythm": "Every day",
+      "window_days": 1,
+      "max_items": 2,
+      "brief": "Vietnamese and global gold prices and why they moved. One Vietnamese article on the domestic move and one on the global move. No price predictions or 'should you buy' pieces."
+    },
+    {
+      "key": "realestate",
+      "name": "Bất động sản Việt Nam",
+      "rhythm": "When it moves",
+      "window_days": 2,
+      "max_items": 2,
+      "brief": "Policy, credit and mortgage rates, real price and transaction data, supply. Nam does not own a home yet, so buyer-relevant facts matter most. Skip project advertorials, PR and listings."
+    },
+    {
+      "key": "childcare",
+      "name": "Child care · 18 months",
+      "rhythm": "A few a week",
+      "window_days": 7,
+      "max_items": 2,
+      "brief": "Research, pediatric guidance or safety notices relevant to a toddler around 18 months: sleep, food, language, development, health. Prefer AAP, WHO, journals, university news and quality science journalism. Skip influencer listicles and product pitches."
+    },
+    {
+      "key": "engineering",
+      "name": "Engineering & architecture",
+      "rhythm": "A few a week",
+      "window_days": 7,
+      "max_items": 2,
+      "brief": "Substantive engineering and architecture writing: real system design case studies, migrations with numbers, design and testing practice. Good sources: InfoQ, real companies' engineering blogs, martinfowler.com, The Pragmatic Engineer."
+    },
+    {
+      "key": "ai",
+      "name": "AI stack & practice",
+      "rhythm": "A few a week",
+      "window_days": 7,
+      "max_items": 2,
+      "brief": "Practical AI engineering: coding agents in real use, testing AI-written code, tooling, model or stack changes that affect builders, cost. Good sources: Simon Willison, InfoQ, Latent Space, official engineering posts. Skip hype, funding news and leaderboard listicles."
+    },
+    {
+      "key": "podcasts",
+      "name": "Podcasts worth your time",
+      "rhythm": "A couple a week",
+      "window_days": 14,
+      "max_items": 2,
+      "brief": "Long, in-depth episodes on software engineering, system design, architecture or AI practice. Quality bar: Beyond Coding's 'Why The Best Software Engineers Focus On System Design'. Good sources: The Pragmatic Engineer, InfoQ Podcast, Software Engineering Radio, Beyond Coding, Latent Space, CaSE."
+    }
+  ]
+}
