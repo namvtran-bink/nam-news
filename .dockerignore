@@ -1,8 +1,0 @@
-.git
-web/node_modules
-web/.next
-**/.env
-*.db
-*.db-*
-data
-mac/.env
