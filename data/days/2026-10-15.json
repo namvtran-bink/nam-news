@@ -1,0 +1,95 @@
+{
+  "date": "2026-10-15",
+  "gold_prices": {
+    "as_of": "Sáng 15/10/2026, theo Báo Đà Nẵng",
+    "source_url": "https://baodanang.vn/gia-vang-hom-nay-15-10-2026-vang-mieng-sjc-nhan-tron-9999-btmc-va-vang-the-gioi-3355168.html",
+    "rows": [
+      {
+        "type": "sjc_bar",
+        "label": "SJC miếng",
+        "currency": "VND",
+        "unit": "million VND per lượng",
+        "buy": 140.3,
+        "sell": 143.3,
+        "change": -1.0
+      },
+      {
+        "type": "btmc_ring_9999",
+        "label": "Nhẫn 9999 BTMC",
+        "currency": "VND",
+        "unit": "million VND per lượng",
+        "buy": 138.8,
+        "sell": 142.8,
+        "change": -0.5
+      },
+      {
+        "type": "world_spot",
+        "label": "World spot",
+        "currency": "USD",
+        "unit": "USD per troy ounce",
+        "price": 4086.06,
+        "change_pct": -1.7
+      }
+    ]
+  },
+  "notes": {
+    "podcasts": "No new episode worth your time since Monday's pick."
+  },
+  "items": [
+    {
+      "id": "5e696728ed15",
+      "topic": "gold",
+      "title": "Gold price drops to session lows as U.S. CPI heats up in September",
+      "url": "https://www.kitco.com/news/article/2026-10-14/gold-price-drops-session-lows-us-cpi-heats-september",
+      "source": "Kitco",
+      "published": "2026-10-14",
+      "lang": "en",
+      "kind": "Read",
+      "summary": "US annual inflation rose to 3.7% in September, above the 3.6% expected, strengthening bets on a Fed rate hike; the odds of an October hike climbed to 47% from 21%. Spot gold fell more than 1% to $4,107.30 as the dollar and yields rose."
+    },
+    {
+      "id": "ebfe1ca619bb",
+      "topic": "realestate",
+      "title": "Giá nhà đất giảm 15% trong 9 tháng, lãi suất 14-16% có thể kéo tỷ lệ hấp thụ xuống dưới 20%",
+      "url": "https://danviet.vn/gia-nha-dat-giam-15-trong-9-thang-lai-suat-14--16-co-the-keo-ty-le-hap-thu-xuong-duoi-20-d1467132.html",
+      "source": "Dân Việt",
+      "published": "2026-10-14",
+      "lang": "vi",
+      "kind": "Read",
+      "summary": "Theo DXS-FERI, giá rao bán nhà đất trung bình toàn quốc giảm từ khoảng 101 triệu đồng/m² cuối 2025 xuống khoảng 86 triệu đồng/m² trong quý 3. Tỷ lệ hấp thụ có thể đạt 40-45% nếu lãi suất thả nổi dưới 12%, nhưng có thể xuống dưới 20% nếu lãi suất lên 14-16%."
+    },
+    {
+      "id": "fff1894b8c5e",
+      "topic": "childcare",
+      "title": "Parent engagement activates toddlers' brains differently than screen time",
+      "url": "https://www.earth.com/science/parent-engagement-activates-toddlers-brains-differently-than-screen-time/",
+      "source": "Earth.com",
+      "published": "2026-10-14",
+      "lang": "en",
+      "kind": "Read",
+      "summary": "A Northwestern University study in Brain and Language recorded EEG from 49 toddlers aged 24 to 44 months. During play and reading with a parent, the children showed lower alpha and higher theta brain activity than while watching a movie."
+    },
+    {
+      "id": "fd83ae3d1e3e",
+      "topic": "engineering",
+      "title": "Redesigning source control at Anthropic",
+      "url": "https://simonwillison.net/2026/Oct/13/redesigning-source-control-at-anthropic/",
+      "source": "Simon Willison",
+      "published": "2026-10-13",
+      "lang": "en",
+      "kind": "Read",
+      "summary": "Anthropic's merges rose from about 2,500 a day in May 2026 to over 30,000 a day by September. A seven-person team built its own source control system, Scion, and migrated off Git in five months."
+    },
+    {
+      "id": "8d99cdc8387a",
+      "topic": "ai",
+      "title": "Google Antigravity SDK adds local model support",
+      "url": "https://www.infoq.com/news/2026/10/antigravity-sdk-local-models/",
+      "source": "InfoQ",
+      "published": "2026-10-14",
+      "lang": "en",
+      "kind": "Read",
+      "summary": "Google's Antigravity SDK can now run agentic workflows on local models, keeping planning in the cloud while local agents do code-heavy work. It supports Gemma 4 through LiteRT and OpenAI-compatible local servers such as Ollama, LM Studio and vLLM."
+    }
+  ]
+}
