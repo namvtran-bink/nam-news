@@ -1,0 +1,23 @@
+# Comments the day's headlines on issue #4. GitHub emails each comment
+# to the issue's subscribers, which is the morning email.
+name: Morning email
+
+on:
+  push:
+    branches: [main]
+    paths: [data/index.json]
+  workflow_dispatch:
+
+permissions:
+  issues: write
+
+jobs:
+  email:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 .github/scripts/morning_email.py
+      - run: gh issue comment 4 --body-file comment.md
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
