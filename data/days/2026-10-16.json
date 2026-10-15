@@ -1,0 +1,65 @@
+{
+  "date": "2026-10-16",
+  "gold_prices": {
+    "as_of": "Sáng 16/10/2026, theo Báo Đà Nẵng",
+    "source_url": "https://baodanang.vn/gia-vang-hom-nay-16-10-2026-vang-mieng-sjc-nhan-tron-9999-btmc-va-vang-the-gioi-3355300.html",
+    "rows": [
+      {
+        "type": "sjc_bar",
+        "label": "SJC miếng",
+        "currency": "VND",
+        "unit": "million VND per lượng",
+        "buy": 140.3,
+        "sell": 143.3,
+        "change": 0
+      },
+      {
+        "type": "btmc_ring_9999",
+        "label": "Nhẫn 9999 BTMC",
+        "currency": "VND",
+        "unit": "million VND per lượng",
+        "buy": 138.2,
+        "sell": 142.2,
+        "change": -0.6
+      },
+      {
+        "type": "world_spot",
+        "label": "World spot",
+        "currency": "USD",
+        "unit": "USD per troy ounce",
+        "price": 4156.52,
+        "change_pct": 1.3
+      }
+    ]
+  },
+  "notes": {
+    "childcare": "Nothing new since yesterday's pick.",
+    "engineering": "Nothing new worth your time since yesterday.",
+    "ai": "Nothing new worth your time since yesterday.",
+    "podcasts": "No new episode worth your time since Monday's pick."
+  },
+  "items": [
+    {
+      "id": "b01a7830d5ae",
+      "topic": "gold",
+      "title": "Gold, silver rebound as Treasury yields tumble despite hot PPI",
+      "url": "https://www.kitco.com/news/article/2026-10-15/gold-silver-rebound-treasury-yields-tumble-despite-hot-ppi-kitco-am-report",
+      "source": "Kitco",
+      "published": "2026-10-15",
+      "lang": "en",
+      "kind": "Read",
+      "summary": "Spot gold rose 1.05% to $4,147.50 on 15 October, recovering Wednesday's losses as Treasury yields fell and the dollar weakened. US producer prices rose 1.3% in September, the largest monthly rise since March 2022, while a tech-led stock selloff pushed investors toward bonds and bullion."
+    },
+    {
+      "id": "761766db1400",
+      "topic": "realestate",
+      "title": "Thị trường chung cư Hà Nội: Giá rao bán hạ nhiệt, người mua vẫn ngại xuống tiền",
+      "url": "https://cafef.vn/thi-truong-chung-cu-ha-noi-gia-rao-ban-ha-nhiet-nguoi-mua-van-ngai-xuong-tien-188261015100107119.chn",
+      "source": "CafeF",
+      "published": "2026-10-15",
+      "lang": "vi",
+      "kind": "Read",
+      "summary": "Theo CBRE, giá chào bán căn hộ sơ cấp tại Hà Nội quý III/2026 đạt 86 triệu đồng/m², giảm 9% so với quý trước; căn hộ thứ cấp khoảng 60 triệu đồng/m², giảm 8% so với cùng kỳ. 63% trong 530 môi giới được Batdongsan.com.vn khảo sát cho biết người mua vẫn đang quan sát vì lãi suất vay cao."
+    }
+  ]
+}
