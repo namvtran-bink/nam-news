@@ -1,0 +1,75 @@
+{
+  "date": "2026-10-17",
+  "gold_prices": {
+    "as_of": "Sáng 17/10/2026, theo Báo Đà Nẵng; giá thế giới lúc 16:45 ngày 16/10 theo Báo Quốc tế",
+    "source_url": "https://baodanang.vn/gia-vang-hom-nay-17-10-2026-vang-mieng-sjc-nhan-tron-9999-btmc-va-vang-the-gioi-3355431.html",
+    "rows": [
+      {
+        "type": "sjc_bar",
+        "label": "SJC miếng",
+        "currency": "VND",
+        "unit": "million VND per lượng",
+        "buy": 140.9,
+        "sell": 143.9,
+        "change": 0.6
+      },
+      {
+        "type": "btmc_ring_9999",
+        "label": "Nhẫn 9999 BTMC",
+        "currency": "VND",
+        "unit": "million VND per lượng",
+        "buy": 138.6,
+        "sell": 142.6,
+        "change": 0.4
+      },
+      {
+        "type": "world_spot",
+        "label": "World spot",
+        "currency": "USD",
+        "unit": "USD per troy ounce",
+        "price": 4181.9,
+        "change_pct": 0.24
+      }
+    ]
+  },
+  "notes": {
+    "childcare": "Nothing new this week beyond Thursday's pick.",
+    "ai": "Nothing new worth your time since Thursday.",
+    "podcasts": "No new episode worth your time since Monday's pick."
+  },
+  "items": [
+    {
+      "id": "1e72539eb533",
+      "topic": "gold",
+      "title": "Gold price today, Friday, October 16, 2026: Gold lifts as Treasury yields and dollar fall back",
+      "url": "https://finance.yahoo.com/personal-finance/investing/article/gold-price-today-friday-october-16-2026-gold-lifts-as-treasury-yields-and-dollar-fall-back-110651322.html",
+      "source": "Yahoo Finance",
+      "published": "2026-10-16",
+      "lang": "en",
+      "kind": "Read",
+      "summary": "December gold futures opened at $4,192.10 an ounce on 16 October, up 0.5% from Thursday's close, and reached $4,204.40 by early morning in New York. Easing 10-year Treasury yields and a weaker dollar gave gold room to climb back toward $4,200."
+    },
+    {
+      "id": "197f2386d1f9",
+      "topic": "realestate",
+      "title": "Bất động sản Hà Nội cuối năm 2026 diễn biến ra sao... tất cả phụ thuộc vào 2 biến số chính này",
+      "url": "https://cafef.vn/bat-dong-san-ha-noi-cuoi-nam-2026-dien-bien-ra-saotat-ca-phu-thuoc-vao-2-bien-so-chinh-nay-188261016155019231.chn",
+      "source": "CafeF",
+      "published": "2026-10-16",
+      "lang": "vi",
+      "kind": "Read",
+      "summary": "Theo bà Nguyễn Hoài An (CBRE Hà Nội), thị trường Hà Nội cuối năm phụ thuộc vào lãi suất và quyết định mở bán của các chủ đầu tư lớn. 9 tháng đầu năm có 22.820 căn hộ mới, bằng khoảng 63% cả năm 2025; quý 4 dự kiến thêm 30.000-32.000 căn."
+    },
+    {
+      "id": "e0cd84d9ead7",
+      "topic": "engineering",
+      "title": "Uber automates dependency analysis across its service mesh",
+      "url": "https://www.infoq.com/news/2026/10/uber-automated-dependency/",
+      "source": "InfoQ",
+      "published": "2026-10-16",
+      "lang": "en",
+      "kind": "Read",
+      "summary": "Uber correlates caller and downstream failures in its RPC middleware to label each service dependency as fail-close, fail-open or unknown. It found distributed tracing too slow for rare failures: at 0.01% sampling, catching one failed request could take over five hours."
+    }
+  ]
+}
