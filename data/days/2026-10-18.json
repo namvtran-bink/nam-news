@@ -1,0 +1,65 @@
+{
+  "date": "2026-10-18",
+  "gold_prices": {
+    "as_of": "Sáng 18/10/2026, theo Báo Đà Nẵng; giá thế giới phiên 16/10",
+    "source_url": "https://baodanang.vn/gia-vang-hom-nay-18-10-2026-vang-mieng-sjc-nhan-tron-9999-btmc-va-vang-the-gioi-3355591.html",
+    "rows": [
+      {
+        "type": "sjc_bar",
+        "label": "SJC miếng",
+        "currency": "VND",
+        "unit": "million VND per lượng",
+        "buy": 140.6,
+        "sell": 143.6,
+        "change": -0.3
+      },
+      {
+        "type": "btmc_ring_9999",
+        "label": "Nhẫn 9999 BTMC",
+        "currency": "VND",
+        "unit": "million VND per lượng",
+        "buy": 138.4,
+        "sell": 142.4,
+        "change": -0.4
+      },
+      {
+        "type": "world_spot",
+        "label": "World spot",
+        "currency": "USD",
+        "unit": "USD per troy ounce",
+        "price": 4165.12,
+        "change_pct": -0.1
+      }
+    ]
+  },
+  "notes": {
+    "realestate": "Quiet weekend, nothing new since Friday.",
+    "engineering": "Nothing new worth your time since Friday.",
+    "ai": "Nothing new worth your time this weekend.",
+    "podcasts": "No new episode worth your time since Monday's pick."
+  },
+  "items": [
+    {
+      "id": "54ade654de85",
+      "topic": "gold",
+      "title": "Gold gains on softer dollar, but heads for weekly fall",
+      "url": "https://www.brecorder.com/news/40444523/gold-gains-on-softer-dollar-but-heads-for-weekly-fall",
+      "source": "Business Recorder (Reuters)",
+      "published": "2026-10-16",
+      "lang": "en",
+      "kind": "Read",
+      "summary": "Spot gold rose 0.2% to $4,177.82 on Friday as the dollar softened, but was down 0.5% for the week. Hotter-than-expected September inflation and an 89% market-implied chance of a December Fed rate hike weighed on gold, which pays no yield."
+    },
+    {
+      "id": "08261406998a",
+      "topic": "childcare",
+      "title": "DTaP 96% effective against pertussis in Alaska outbreak",
+      "url": "https://www.contemporarypediatrics.com/view/dtap-96-effective-against-pertussis-in-alaska-outbreak",
+      "source": "Contemporary Pediatrics",
+      "published": "2026-10-15",
+      "lang": "en",
+      "kind": "Read",
+      "summary": "In a study of Alaska's 2024 whooping cough outbreak, children aged 6 months to 6 years who had the full 3-dose DTaP series were 96.2% protected, and partially vaccinated children 85.3%. The authors suggest falling vaccine coverage and waning immunity helped the outbreak spread."
+    }
+  ]
+}
