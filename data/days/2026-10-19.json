@@ -1,0 +1,76 @@
+{
+  "date": "2026-10-19",
+  "gold_prices": {
+    "as_of": "Sáng 19/10/2026, theo Báo Đà Nẵng; giá thế giới đóng cửa thứ Sáu 16/10 (thị trường nghỉ cuối tuần)",
+    "source_url": "https://baodanang.vn/gia-vang-hom-nay-19-10-2026-vang-mieng-sjc-nhan-tron-9999-btmc-va-vang-the-gioi-3355662.html",
+    "rows": [
+      {
+        "type": "sjc_bar",
+        "label": "SJC miếng",
+        "currency": "VND",
+        "unit": "million VND per lượng",
+        "buy": 140.6,
+        "sell": 143.6,
+        "change": 0
+      },
+      {
+        "type": "btmc_ring_9999",
+        "label": "Nhẫn 9999 BTMC",
+        "currency": "VND",
+        "unit": "million VND per lượng",
+        "buy": 138.4,
+        "sell": 142.4,
+        "change": 0
+      },
+      {
+        "type": "world_spot",
+        "label": "World spot",
+        "currency": "USD",
+        "unit": "USD per troy ounce",
+        "price": 4165.12,
+        "change_pct": 0
+      }
+    ]
+  },
+  "notes": {
+    "gold": "Quiet weekend: prices unchanged since Sunday's page.",
+    "childcare": "Nothing new since Sunday's pick.",
+    "ai": "Nothing new worth your time since Thursday.",
+    "podcasts": "No new episode worth your time since last Monday's pick."
+  },
+  "items": [
+    {
+      "id": "a5d0aa6f2743",
+      "topic": "realestate",
+      "title": "Thủ tướng Lê Minh Hưng: \"Giá đất và bất động sản chắc chắn sẽ giảm\"",
+      "url": "https://vtv.vn/thu-tuong-le-minh-hung-gia-dat-va-bat-dong-san-chac-chan-se-giam-100261018183334402.htm",
+      "source": "VTV",
+      "published": "2026-10-18",
+      "lang": "vi",
+      "kind": "Read",
+      "summary": "Phát biểu khi Quốc hội thảo luận tổ chiều 18/10, Thủ tướng cho biết Chính phủ đang mở rộng nhà ở xã hội và nhà cho thuê, và giá chung cư được kỳ vọng đi xuống. Ông khẳng định khi Luật Đất đai được thông qua, Nhà nước sẽ can thiệp mạnh hơn và \"giá đất và bất động sản chắc chắn sẽ giảm\"."
+    },
+    {
+      "id": "2fd7fd8d709f",
+      "topic": "realestate",
+      "title": "Giá bất động sản giảm ở tất cả phân khúc nhưng giao dịch chậm",
+      "url": "https://cafef.vn/gia-bat-dong-san-giam-o-tat-ca-phan-khuc-nhung-giao-dich-cham-188261018023157833.chn",
+      "source": "CafeF",
+      "published": "2026-10-18",
+      "lang": "vi",
+      "kind": "Read",
+      "summary": "Theo số liệu Bộ Xây dựng do HoREA dẫn lại, quý III/2026 cả nước có 92.004 giao dịch bất động sản, giảm 8% so với quý II; riêng căn hộ và nhà ở riêng lẻ giảm 14% còn 22.847 giao dịch. Giá nhiều phân khúc có xu hướng điều chỉnh nhẹ."
+    },
+    {
+      "id": "e42227254ca9",
+      "topic": "engineering",
+      "title": "Amazon acquires DuckLabs and integrates DuckDB in Amazon Aurora PostgreSQL",
+      "url": "https://www.infoq.com/news/2026/10/amazon-acquires-ducklabs/",
+      "source": "InfoQ",
+      "published": "2026-10-17",
+      "lang": "en",
+      "kind": "Read",
+      "summary": "Amazon bought DuckLabs, the company behind the DuckDB analytical database; its co-founders will keep leading the team inside AWS and DuckDB stays MIT-licensed open source. Aurora PostgreSQL is the first AWS service with a DuckDB-powered feature, for querying data in S3 and Apache Iceberg tables."
+    }
+  ]
+}
