@@ -1,0 +1,75 @@
+{
+  "date": "2026-10-20",
+  "gold_prices": {
+    "as_of": "Sáng 20/10/2026, theo Báo Đà Nẵng; giá thế giới lúc 9:03 sáng 19/10 (giờ New York)",
+    "source_url": "https://baodanang.vn/gia-vang-hom-nay-20-10-2026-vang-mieng-sjc-nhan-tron-9999-btmc-va-vang-the-gioi-3355752.html",
+    "rows": [
+      {
+        "type": "sjc_bar",
+        "label": "SJC miếng",
+        "currency": "VND",
+        "unit": "million VND per lượng",
+        "buy": 140.1,
+        "sell": 143.1,
+        "change": -0.5
+      },
+      {
+        "type": "btmc_ring_9999",
+        "label": "Nhẫn 9999 BTMC",
+        "currency": "VND",
+        "unit": "million VND per lượng",
+        "buy": 138.8,
+        "sell": 142.8,
+        "change": 0.4
+      },
+      {
+        "type": "world_spot",
+        "label": "World spot",
+        "currency": "USD",
+        "unit": "USD per troy ounce",
+        "price": 4163.65,
+        "change_pct": -0.04
+      }
+    ]
+  },
+  "notes": {
+    "childcare": "Nothing new since Sunday's pick.",
+    "ai": "Nothing new worth your time since Thursday.",
+    "podcasts": "No new episode worth your time since last Monday's pick."
+  },
+  "items": [
+    {
+      "id": "a7084f683392",
+      "topic": "gold",
+      "title": "Gold and silver prices pressured by hot inflation, but gold ETF holdings buck trend to hit 2026 highs",
+      "url": "https://www.kitco.com/news/article/2026-10-19/gold-and-silver-prices-pressured-hot-inflation-gold-etf-holdings-buck-trend",
+      "source": "Kitco",
+      "published": "2026-10-19",
+      "lang": "en",
+      "kind": "Read",
+      "summary": "Hotter-than-expected September CPI and PPI pushed yields and the dollar up and raised Fed hike expectations, leaving spot gold down 0.33% at $4,151.80. Gold ETF holdings still hit a 2026 high of 101.3 million ounces on 8 October as investors bought dips, with Asian funds behind almost half the 12-month increase."
+    },
+    {
+      "id": "22427705d387",
+      "topic": "realestate",
+      "title": "Giá chung cư Hà Nội tháng 10/2026: Hạ nhiệt so với đầu năm, người trẻ vẫn khó an cư",
+      "url": "https://thanhtra.com.vn/nha-dat-57A4B2310/gia-chung-cu-ha-noi-thang-102026-ha-nhiet-so-voi-dau-nam-nguoi-tre-van-kho-an-cu-3bb818b28.html",
+      "source": "Thanh Tra",
+      "published": "2026-10-19",
+      "lang": "vi",
+      "kind": "Read",
+      "summary": "Khảo sát của Báo Thanh Tra tại phía Tây Hà Nội cho thấy giá rao bán thấp hơn đầu năm, ví dụ căn 54m² tại Lumi Hanoi giảm từ khoảng 4,6 tỷ xuống khoảng 3,8 tỷ đồng. Dù vậy, với lãi suất thả nổi 13-15%/năm, người trẻ thu nhập khoảng 15 triệu đồng/tháng vẫn khó mua nhà nếu không có hỗ trợ từ gia đình."
+    },
+    {
+      "id": "7fb43930433c",
+      "topic": "engineering",
+      "title": "AWS introduces preview of Well-Architected Agent",
+      "url": "https://www.infoq.com/news/2026/10/aws-well-architected-agent/",
+      "source": "InfoQ",
+      "published": "2026-10-18",
+      "lang": "en",
+      "kind": "Read",
+      "summary": "AWS previewed an AI agent that reviews cloud environments against Well-Architected practices, ranks fixes across cost, security, performance and reliability, and can check infrastructure-as-code before deployment. The preview is limited to three US regions and higher support tiers, and AWS warns its recommendations need human oversight."
+    }
+  ]
+}
