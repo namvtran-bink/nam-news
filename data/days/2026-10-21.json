@@ -1,0 +1,76 @@
+{
+  "date": "2026-10-21",
+  "gold_prices": {
+    "as_of": "Sáng 21/10/2026, theo Báo Đà Nẵng; giá thế giới lúc 11:03 GMT ngày 20/10",
+    "source_url": "https://baodanang.vn/gia-vang-hom-nay-21-10-2026-vang-mieng-sjc-nhan-tron-9999-btmc-va-vang-the-gioi-3355841.html",
+    "rows": [
+      {
+        "type": "sjc_bar",
+        "label": "SJC miếng",
+        "currency": "VND",
+        "unit": "million VND per lượng",
+        "buy": 139.6,
+        "sell": 142.6,
+        "change": -0.5
+      },
+      {
+        "type": "btmc_ring_9999",
+        "label": "Nhẫn 9999 BTMC",
+        "currency": "VND",
+        "unit": "million VND per lượng",
+        "buy": 138.6,
+        "sell": 142.6,
+        "change": -0.2
+      },
+      {
+        "type": "world_spot",
+        "label": "World spot",
+        "currency": "USD",
+        "unit": "USD per troy ounce",
+        "price": 4120.87,
+        "change_pct": -0.5
+      }
+    ]
+  },
+  "notes": {
+    "realestate": "Nothing new since Monday.",
+    "childcare": "Nothing new worth your time this week yet.",
+    "ai": "Nothing new worth your time since last Thursday."
+  },
+  "items": [
+    {
+      "id": "e0f0b95e6bb3",
+      "topic": "gold",
+      "title": "Giá vàng hôm nay 21/10/2026 giữ sắc đỏ, thị trường đang tích lũy, bán vàng từ 5 triệu đồng không được dùng tiền mặt",
+      "url": "https://baoquocte.vn/gia-vang-hom-nay-21-10-2026-giu-sac-do-thi-truong-dang-tich-luy-ban-vang-tu-5-trieu-dong-khong-duoc-dung-tien-mat-458717.html",
+      "source": "Báo Quốc tế",
+      "published": "2026-10-20",
+      "lang": "vi",
+      "kind": "Read",
+      "summary": "Theo Nghị định 390, từ 16/10 khách mua, bán vàng có giá trị từ 5 triệu đồng trong ngày phải thanh toán không dùng tiền mặt (trước đây là 20 triệu đồng). Vàng thế giới giảm khi giá dầu Brent trên 110 USD/thùng làm tăng lo ngại lạm phát; CME FedWatch cho thấy xác suất Fed tăng lãi suất trước tháng 12 là 92%."
+    },
+    {
+      "id": "f27a9af46bed",
+      "topic": "engineering",
+      "title": "Pinterest uses event time watermarks to finalize petabyte scale data partitions",
+      "url": "https://www.infoq.com/news/2026/10/pinterest-event-time-partition/",
+      "source": "InfoQ",
+      "published": "2026-10-19",
+      "lang": "en",
+      "kind": "Read",
+      "summary": "Pinterest uses Apache Flink to track event time and Iceberg metadata to publish a watermark telling downstream jobs when continuously ingested CDC data is complete. The framework runs thousands of pipelines at petabyte scale, with changes usually available within 15 minutes to an hour."
+    },
+    {
+      "id": "234aa08da721",
+      "topic": "podcasts",
+      "title": "The future of web apps: will AI agents generate UIs on the fly?",
+      "url": "https://www.infoq.com/podcasts/future-web-apps",
+      "source": "The InfoQ Podcast",
+      "published": "2026-10-19",
+      "lang": "en",
+      "kind": "Listen",
+      "summary": "Former React team member Rachel Lee Nabors on local-first apps that run small language models on-device for privacy, latency and cost, and how to evaluate them with golden datasets. Also covers how AI agents and new UI standards may change web architecture and which skills engineers will need.",
+      "duration": "47 min"
+    }
+  ]
+}
