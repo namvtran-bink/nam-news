@@ -1,0 +1,65 @@
+{
+  "date": "2026-10-22",
+  "gold_prices": {
+    "as_of": "Sáng 22/10/2026, theo Báo Đà Nẵng; giá thế giới lúc 10:45 GMT ngày 21/10",
+    "source_url": "https://baodanang.vn/gia-vang-hom-nay-22-10-2026-vang-mieng-sjc-nhan-tron-9999-btmc-va-vang-the-gioi-3355979.html",
+    "rows": [
+      {
+        "type": "sjc_bar",
+        "label": "SJC miếng",
+        "currency": "VND",
+        "unit": "million VND per lượng",
+        "buy": 139.3,
+        "sell": 142.3,
+        "change": -0.3
+      },
+      {
+        "type": "btmc_ring_9999",
+        "label": "Nhẫn 9999 BTMC",
+        "currency": "VND",
+        "unit": "million VND per lượng",
+        "buy": 138.1,
+        "sell": 142.1,
+        "change": -0.5
+      },
+      {
+        "type": "world_spot",
+        "label": "World spot",
+        "currency": "USD",
+        "unit": "USD per troy ounce",
+        "price": 4127.53,
+        "change_pct": 0.16
+      }
+    ]
+  },
+  "notes": {
+    "gold": "SJC down a fourth session. World gold steadied near $4,127 after a near one-week low, with Brent above $110 and UK inflation at 3.5% keeping rate-hike worries alive (Báo Đà Nẵng).",
+    "childcare": "Nothing new worth your time this week yet.",
+    "ai": "Nothing new worth your time since last Thursday.",
+    "podcasts": "Nothing new since yesterday's pick."
+  },
+  "items": [
+    {
+      "id": "793bfc048c00",
+      "topic": "realestate",
+      "title": "Vì sao tỷ lệ hấp thụ nhà ở mới quý 3/2026 về mức thấp nhất hai năm?",
+      "url": "https://vn.investing.com/news/stock-market-news/vi-sao-ty-le-hap-thu-nha-o-moi-quy-32026-ve-muc-thap-nhat-hai-nam-2740048",
+      "source": "Vietstock (qua Investing.com)",
+      "published": "2026-10-21",
+      "lang": "vi",
+      "kind": "Read",
+      "summary": "Theo VARS IRE, quý III/2026 cả nước có 31.844 sản phẩm nhà ở mở bán mới nhưng chỉ 12.520 giao dịch thành công, tỷ lệ hấp thụ 39,3%, thấp nhất hai năm. Lãi vay sau ưu đãi 13-15%/năm và giá cao khiến người mua quyết định chậm hơn và ưu tiên dự án pháp lý rõ ràng."
+    },
+    {
+      "id": "af02b0baed07",
+      "topic": "engineering",
+      "title": "My obituary for programming",
+      "url": "https://simonwillison.net/2026/Oct/19/my-obituary-for-programming/",
+      "source": "Simon Willison",
+      "published": "2026-10-19",
+      "lang": "en",
+      "kind": "Read",
+      "summary": "Simon Willison shares Jeremy Scheff's essay arguing that coding agents remove the puzzle-solving many programmers found most rewarding. Willison notes the loss is real mainly for developers who enjoyed solving problems themselves rather than shipping working systems."
+    }
+  ]
+}
