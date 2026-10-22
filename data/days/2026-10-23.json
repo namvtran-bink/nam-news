@@ -1,0 +1,75 @@
+{
+  "date": "2026-10-23",
+  "gold_prices": {
+    "as_of": "Sáng 23/10/2026, theo Báo Đà Nẵng; giá thế giới phiên 22/10",
+    "source_url": "https://baodanang.vn/gia-vang-hom-nay-23-10-2026-vang-mieng-sjc-nhan-tron-9999-btmc-va-vang-the-gioi-3356080.html",
+    "rows": [
+      {
+        "type": "sjc_bar",
+        "label": "SJC miếng",
+        "currency": "VND",
+        "unit": "million VND per lượng",
+        "buy": 139.3,
+        "sell": 142.3,
+        "change": 0
+      },
+      {
+        "type": "btmc_ring_9999",
+        "label": "Nhẫn 9999 BTMC",
+        "currency": "VND",
+        "unit": "million VND per lượng",
+        "buy": 138.1,
+        "sell": 142.1,
+        "change": 0
+      },
+      {
+        "type": "world_spot",
+        "label": "World spot",
+        "currency": "USD",
+        "unit": "USD per troy ounce",
+        "price": 4060.37,
+        "change_pct": -1.9
+      }
+    ]
+  },
+  "notes": {
+    "childcare": "Nothing new worth your time this week yet.",
+    "ai": "Nothing new worth your time since last Thursday.",
+    "podcasts": "Nothing new since Wednesday's pick."
+  },
+  "items": [
+    {
+      "id": "666d5bdb2012",
+      "topic": "gold",
+      "title": "Gold hits over two-month low as oil rally fuels inflation worries",
+      "url": "http://www.kitco.com/news/off-the-wire/2026-10-22/gold-hits-over-two-month-low-oil-rally-fuels-inflation-worries",
+      "source": "Kitco (Reuters)",
+      "published": "2026-10-22",
+      "lang": "en",
+      "kind": "Read",
+      "summary": "Spot gold fell 1.9% to $4,060.37, its lowest in over two months, as Brent hit its highest since May after Houthi attacks in Saudi Arabia. Higher oil and hot US inflation data point to tighter Fed policy ahead of its 27-28 October meeting, making non-yielding gold less attractive."
+    },
+    {
+      "id": "dcb001e4ae6c",
+      "topic": "realestate",
+      "title": "Thủ tướng Lê Minh Hưng: Nhà trước hết là để người dân có chỗ ở",
+      "url": "https://vtv.vn/thu-tuong-le-minh-hung-nha-truoc-het-la-de-nguoi-dan-co-cho-o-100261022213458835.htm",
+      "source": "VTV",
+      "published": "2026-10-22",
+      "lang": "vi",
+      "kind": "Read",
+      "summary": "Quốc hội ngày 22/10 thảo luận Luật Đất đai, Luật Nhà ở và Luật Kinh doanh bất động sản (sửa đổi). Dự thảo Luật Nhà ở ưu tiên nhà ở cho thuê, chỉ cho bán lại nhà ở xã hội sau 5 năm và giới hạn tiền đặt cọc không quá 5%; bảng giá đất sẽ do HĐND cấp tỉnh ban hành."
+    },
+    {
+      "id": "91970f8204a2",
+      "topic": "engineering",
+      "title": "Netflix bridges AWS IAM and internal identity with workload attestation",
+      "url": "https://www.infoq.com/news/2026/10/netflix-workload-attestation-aws/",
+      "source": "InfoQ",
+      "published": "2026-10-21",
+      "lang": "en",
+      "kind": "Read",
+      "summary": "Netflix lets Spark jobs on Amazon EMR exchange their AWS execution identity for a short-lived certificate from its internal Metatron PKI. The driver attests once, passes credentials to executors and renews them before they expire."
+    }
+  ]
+}
