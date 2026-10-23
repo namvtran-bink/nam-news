@@ -1,0 +1,85 @@
+{
+  "date": "2026-10-24",
+  "gold_prices": {
+    "as_of": "Sáng 24/10/2026, theo Báo Đà Nẵng; giá thế giới lúc 12:10 GMT ngày 23/10",
+    "source_url": "https://baodanang.vn/gia-vang-hom-nay-24-10-2026-vang-mieng-sjc-nhan-tron-9999-btmc-va-vang-the-gioi-3356219.html",
+    "rows": [
+      {
+        "type": "sjc_bar",
+        "label": "SJC miếng",
+        "currency": "VND",
+        "unit": "million VND per lượng",
+        "buy": 139.0,
+        "sell": 142.0,
+        "change": -0.3
+      },
+      {
+        "type": "btmc_ring_9999",
+        "label": "Nhẫn 9999 BTMC",
+        "currency": "VND",
+        "unit": "million VND per lượng",
+        "buy": 137.4,
+        "sell": 141.4,
+        "change": -0.7
+      },
+      {
+        "type": "world_spot",
+        "label": "World spot",
+        "currency": "USD",
+        "unit": "USD per troy ounce",
+        "price": 4023.95,
+        "change_pct": -0.9
+      }
+    ]
+  },
+  "notes": {
+    "realestate": "Nothing new since Friday's law discussion.",
+    "podcasts": "Nothing new since Wednesday's pick."
+  },
+  "items": [
+    {
+      "id": "e9770850542d",
+      "topic": "gold",
+      "title": "Gold heads for steep weekly loss as Hormuz tensions lift crude toward five-month highs",
+      "url": "https://www.kitco.com/news/article/2026-10-23/gold-heads-steep-weekly-loss-hormuz-tensions-lift-crude-toward-five-month",
+      "source": "Kitco",
+      "published": "2026-10-23",
+      "lang": "en",
+      "kind": "Read",
+      "summary": "Spot gold fell 2.40% to about $4,026.56 on 23 October, heading for a weekly loss of more than 3.5%. Renewed Strait of Hormuz and US-Iran tensions pushed oil higher and strengthened expectations of tight Fed policy, with traders pricing about a 78% chance of another hike by December."
+    },
+    {
+      "id": "b7c3fbca213e",
+      "topic": "childcare",
+      "title": "FDA proposes cadmium action levels for baby food under Closer to Zero",
+      "url": "https://www.contemporarypediatrics.com/view/fda-proposes-cadmium-action-levels-for-baby-food-under-closer-to-zero",
+      "source": "Contemporary Pediatrics",
+      "published": "2026-10-22",
+      "lang": "en",
+      "kind": "Read",
+      "summary": "The US FDA proposed draft, nonbinding cadmium limits for processed foods for children under 2: 10 ppb for most fruits, vegetables and mixtures, 25 ppb for single-ingredient carrots and meats, and 45 ppb for dry infant cereals. The FDA estimates 93% of fruit, vegetable and mixture samples already meet them."
+    },
+    {
+      "id": "0bdaeb97622c",
+      "topic": "engineering",
+      "title": "Study finds AI-generated code fails to boost productivity due to downstream bottlenecks",
+      "url": "https://www.infoq.com/news/2026/10/jellyfish-ai-productivity/",
+      "source": "InfoQ",
+      "published": "2026-10-22",
+      "lang": "en",
+      "kind": "Read",
+      "summary": "A Harvard study of 718 firms found AI coding agents raised lines of code by 30% and pull requests by 23%, but with no significant rise in resolved Jira issues. Review work grew instead: PR review time rose 49% and the share of PRs needing changes doubled."
+    },
+    {
+      "id": "09776931f465",
+      "topic": "ai",
+      "title": "Donating Agent Skills to the Agentic AI Foundation",
+      "url": "https://simonwillison.net/2026/Oct/22/donating-agent-skills/",
+      "source": "Simon Willison",
+      "published": "2026-10-22",
+      "lang": "en",
+      "kind": "Read",
+      "summary": "Anthropic is donating its Agent Skills standard to the Linux Foundation's Agentic AI Foundation, which already hosts the Model Context Protocol, to keep it open and vendor-neutral. The foundation was co-founded by Anthropic, Block and OpenAI in 2025."
+    }
+  ]
+}
