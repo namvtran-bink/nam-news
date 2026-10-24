@@ -1,0 +1,55 @@
+{
+  "date": "2026-10-25",
+  "gold_prices": {
+    "as_of": "Sáng 25/10/2026, theo Báo Đà Nẵng; giá thế giới lúc 11:20 sáng 23/10 (giờ New York), theo Reuters qua MINING.COM",
+    "source_url": "https://baodanang.vn/gia-vang-hom-nay-25-10-2026-vang-mieng-sjc-nhan-tron-9999-btmc-va-vang-the-gioi-3356358.html",
+    "rows": [
+      {
+        "type": "sjc_bar",
+        "label": "SJC miếng",
+        "currency": "VND",
+        "unit": "million VND per lượng",
+        "buy": 138.7,
+        "sell": 141.7,
+        "change": -0.3
+      },
+      {
+        "type": "btmc_ring_9999",
+        "label": "Nhẫn 9999 BTMC",
+        "currency": "VND",
+        "unit": "million VND per lượng",
+        "buy": 137.1,
+        "sell": 141.1,
+        "change": -0.3
+      },
+      {
+        "type": "world_spot",
+        "label": "World spot",
+        "currency": "USD",
+        "unit": "USD per troy ounce",
+        "price": 3998.35,
+        "change_pct": -0.6
+      }
+    ]
+  },
+  "notes": {
+    "realestate": "Quiet weekend, nothing new since Friday.",
+    "childcare": "Nothing new since Saturday's pick.",
+    "engineering": "Nothing new since Saturday's pick.",
+    "ai": "Nothing new since Saturday's pick.",
+    "podcasts": "Nothing new since Wednesday's pick."
+  },
+  "items": [
+    {
+      "id": "55773b282ff5",
+      "topic": "gold",
+      "title": "Gold price set for steep weekly loss as rising oil prices bolster Fed rate hike bets",
+      "url": "https://www.mining.com/web/gold-price-set-for-steep-weekly-loss-as-rising-oil-prices-bolster-fed-rate-hike-bets/",
+      "source": "MINING.COM (Reuters)",
+      "published": "2026-10-23",
+      "lang": "en",
+      "kind": "Read",
+      "summary": "Spot gold slipped below $4,000 to $3,998.35 on Friday and was down about 4% for the week, its worst since June. Brent at a five-month high after Houthi attacks in Saudi Arabia raised bets on Fed hikes before the 27-28 October meeting, and margin calls from a tech stock selloff added to selling."
+    }
+  ]
+}
