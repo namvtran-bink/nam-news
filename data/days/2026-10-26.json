@@ -1,0 +1,75 @@
+{
+  "date": "2026-10-26",
+  "gold_prices": {
+    "as_of": "Sáng 26/10/2026, theo Báo Đà Nẵng; giá thế giới giữ mức phiên thứ Sáu 23/10 (thị trường nghỉ cuối tuần)",
+    "source_url": "https://baodanang.vn/gia-vang-hom-nay-26-10-2026-vang-mieng-sjc-nhan-tron-9999-btmc-va-vang-the-gioi-3356439.html",
+    "rows": [
+      {
+        "type": "sjc_bar",
+        "label": "SJC miếng",
+        "currency": "VND",
+        "unit": "million VND per lượng",
+        "buy": 138.7,
+        "sell": 141.7,
+        "change": 0
+      },
+      {
+        "type": "btmc_ring_9999",
+        "label": "Nhẫn 9999 BTMC",
+        "currency": "VND",
+        "unit": "million VND per lượng",
+        "buy": 136.9,
+        "sell": 140.9,
+        "change": -0.2
+      },
+      {
+        "type": "world_spot",
+        "label": "World spot",
+        "currency": "USD",
+        "unit": "USD per troy ounce",
+        "price": 3998.35,
+        "change_pct": 0
+      }
+    ]
+  },
+  "notes": {
+    "gold": "No new gold story over the weekend. Last week world gold swung from about $4,190 down to $3,975; the Fed meets on 27-28 October.",
+    "childcare": "Nothing new since Saturday's pick.",
+    "podcasts": "Nothing new since last Wednesday's pick."
+  },
+  "items": [
+    {
+      "id": "a829775b3e02",
+      "topic": "realestate",
+      "title": "Dự báo 3 kịch bản cho bất động sản cuối năm 2026",
+      "url": "https://cafebiz.vn/du-bao-3-kich-ban-cho-bat-dong-san-cuoi-nam-2026-176261025074628574.chn",
+      "source": "CafeBiz",
+      "published": "2026-10-25",
+      "lang": "vi",
+      "kind": "Read",
+      "summary": "DXS-FERI đưa ra 3 kịch bản cho cuối năm: lý tưởng (lãi suất thả nổi 9-11%, giá tăng 5-10%), kỳ vọng (11-13%, giá đi ngang hoặc tăng nhẹ, hấp thụ 25-40%) và thách thức (13-15%, giá giảm nhẹ, hấp thụ dưới 20%). Kịch bản kỳ vọng được đánh giá có xác suất cao nhất."
+    },
+    {
+      "id": "c577f4a8ebb8",
+      "topic": "engineering",
+      "title": "Cloudflare reclaims 100 TB of RAM by optimizing consistent hashing",
+      "url": "https://www.infoq.com/news/2026/10/cloudflare-hashing-optimization/",
+      "source": "InfoQ",
+      "published": "2026-10-24",
+      "lang": "en",
+      "kind": "Read",
+      "summary": "Cloudflare cut more than 100 TB of memory from its internal load-balancing router by optimizing the Rust consistent-hashing code in pingora-ketama. It reduced hashes per backend by about 90%, shrank each stored hash point from 8 to 6 bytes, and rolled out gradually to limit cache churn."
+    },
+    {
+      "id": "8641a483cc9c",
+      "topic": "ai",
+      "title": "Google's Data Agent Kit hits GA, splitting agent guardrails between skills and IAM",
+      "url": "https://www.infoq.com/news/2026/10/data-agent-kit-ga/",
+      "source": "InfoQ",
+      "published": "2026-10-24",
+      "lang": "en",
+      "kind": "Read",
+      "summary": "Google's free, open-source Data Agent Kit gives coding agents 37 skills and MCP tools for more than fifteen Google Data Cloud services. It uses two safety layers: skills that tell agents to pause before destructive actions, and IAM deny policies that block those actions at the platform level."
+    }
+  ]
+}
