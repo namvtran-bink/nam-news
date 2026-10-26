@@ -1,0 +1,65 @@
+{
+  "date": "2026-10-27",
+  "gold_prices": {
+    "as_of": "Sáng 27/10/2026, theo Báo Đà Nẵng; giá thế giới lúc 11:26 GMT ngày 26/10",
+    "source_url": "https://baodanang.vn/gia-vang-hom-nay-27-10-2026-vang-mieng-sjc-nhan-tron-9999-btmc-va-vang-the-gioi-3356527.html",
+    "rows": [
+      {
+        "type": "sjc_bar",
+        "label": "SJC miếng",
+        "currency": "VND",
+        "unit": "million VND per lượng",
+        "buy": 138.7,
+        "sell": 141.7,
+        "change": 0
+      },
+      {
+        "type": "btmc_ring_9999",
+        "label": "Nhẫn 9999 BTMC",
+        "currency": "VND",
+        "unit": "million VND per lượng",
+        "buy": 136.8,
+        "sell": 140.8,
+        "change": -0.1
+      },
+      {
+        "type": "world_spot",
+        "label": "World spot",
+        "currency": "USD",
+        "unit": "USD per troy ounce",
+        "price": 4012.09,
+        "change_pct": 0.4
+      }
+    ]
+  },
+  "notes": {
+    "childcare": "Nothing new worth your time since Saturday.",
+    "engineering": "Nothing new since Monday's pick.",
+    "ai": "Nothing new since Monday's pick.",
+    "podcasts": "No new episode since last week's pick."
+  },
+  "items": [
+    {
+      "id": "87fb58ece096",
+      "topic": "gold",
+      "title": "Gold holds above $4,000 as Hormuz diplomacy cools crude ahead of Fed decision",
+      "url": "http://www.kitco.com/news/article/2026-10-26/gold-holds-above-4000-hormuz-diplomacy-cools-crude-ahead-fed-decision-kitco",
+      "source": "Kitco",
+      "published": "2026-10-26",
+      "lang": "en",
+      "kind": "Read",
+      "summary": "Gold climbed back above $4,000 on Monday as lower oil prices and diplomatic efforts involving Iran eased inflation worries, prompting buying after last week's losses. Gains were limited by expectations of further Fed tightening ahead of Wednesday's decision."
+    },
+    {
+      "id": "0a1c42a8f320",
+      "topic": "realestate",
+      "title": "Thông tin báo chí 26/10: Giá chung cư đồng loạt giảm",
+      "url": "https://ttbc-hcm.gov.vn/thong-tin-bao-chi-26-10-gia-chung-cu-dong-loat-giam-tien-ich-so-ngay-cang-gan-dan-nguoi-dan-binh-dong-ung-pho-truoc-ngay-trieu-cuong-dat-dinh-1022616.html",
+      "source": "TTBC TP.HCM (theo Báo Lao Động)",
+      "published": "2026-10-26",
+      "lang": "vi",
+      "kind": "Read",
+      "summary": "Theo Batdongsan.com.vn, giá chào bán căn hộ TP.HCM quý III/2026 giảm nhẹ 1-3% (Hà Nội giảm khoảng 5%), nhưng mức trung bình khoảng 69 triệu đồng/m² vẫn cao hơn 44% so với quý I/2024. Giá mở bán khu Đông 83-124 triệu đồng/m², khu Tây 69-95 triệu đồng/m², khu giáp Bình Dương khoảng 43-63 triệu đồng/m²."
+    }
+  ]
+}
